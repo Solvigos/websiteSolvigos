@@ -1,75 +1,78 @@
 import { ServiceLayout } from "@/components/shared/ServiceLayout";
+import {
+  IconHeadset,
+  IconMail,
+  IconMessage,
+  IconUsers,
+} from "@tabler/icons-react";
 
 export default function CustomerSupportPage() {
   return (
     <ServiceLayout
-      title="Customer Support Outsourcing"
+      title="Improve outbound calls today"
       subtitle="Services 01"
-      description="Your customers expect quick answers, professional communication, and personalized support. Solvigos helps you deliver outstanding service experiences that strengthen customer loyalty and improve retention. Our dedicated team becomes an extension of your brand, handling every interaction with care and professionalism."
-      experienceText="We have over 25 years of experience."
-      serviceCards={[
+      description="We help call centers boost KPIs, make better decisions based on insights, and manage contacts more wisely."
+      heroImage="/solutions.png"
+      features={[
         {
-          num: "01.",
-          title: "Live Chat Support",
-          desc: "Real-time assistance for your customers through live chat channels, ensuring instant issue resolution.",
+          icon: <IconHeadset size={28} />,
+          title: "Focus on valuable activities only",
+          description:
+            "Make sure you only speak to top-quality leads. Don't waste time on busy lines.",
         },
         {
-          num: "02.",
-          title: "Email Support",
-          desc: "Professional email management with fast, detailed responses that reflect your brand voice.",
+          icon: <IconMail size={28} />,
+          title: "Manage your leads effortlessly",
+          description:
+            "Pick and assign leads to the right campaigns. Automate your lead journeys and flows.",
         },
         {
-          num: "03.",
-          title: "Help Desk Management",
-          desc: "Centralized support operations with ticket tracking, prioritization, and resolution workflows.",
+          icon: <IconMessage size={28} />,
+          title: "Make data-driven decisions with impact",
+          description:
+            "Customize your reports and get insights to keep up with your most important KPIs.",
         },
         {
-          num: "04.",
+          icon: <IconUsers size={28} />,
+          title: "Automate repetitive tasks & actions",
+          description:
+            "Create your own automated workflows. Waste no more time on repetitive tasks.",
+        },
+      ]}
+      keyFeatures={[
+        {
+          title: "24/7 Live Chat Support",
+          description:
+            "Real-time assistance for your customers through live chat channels, ensuring instant issue resolution.",
+        },
+        {
+          title: "Professional Email Management",
+          description:
+            "Fast, detailed responses that reflect your brand voice and maintain customer satisfaction.",
+        },
+        {
           title: "Social Media Support",
-          desc: "Responsive support across social platforms to maintain your brand reputation online.",
+          description:
+            "Responsive support across social platforms to maintain your brand reputation online.",
         },
         {
-          num: "05.",
           title: "Order Management",
-          desc: "End-to-end order processing, tracking, and customer communication for seamless transactions.",
+          description:
+            "End-to-end order processing, tracking, and customer communication for seamless transactions.",
         },
         {
-          num: "06.",
           title: "Returns & Refunds",
-          desc: "Hassle-free returns processing and refund management that keeps customers satisfied.",
+          description:
+            "Hassle-free returns processing and refund management that keeps customers satisfied.",
+        },
+        {
+          title: "Quality Monitoring",
+          description:
+            "Regular quality audits and CSAT tracking to ensure consistent service excellence.",
         },
       ]}
-      popularServices={[
-        {
-          title: "Customer Onboarding",
-          image: "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&q=80",
-          desc: "Streamlined onboarding experiences that help new customers get started quickly and successfully with your product or service.",
-        },
-        {
-          title: "Subscription Support",
-          image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80",
-          desc: "Comprehensive subscription management including billing, upgrades, cancellations, and renewal reminders.",
-        },
-        {
-          title: "Customer Retention",
-          image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80",
-          desc: "Proactive retention programs and satisfaction monitoring to reduce churn and build lasting relationships.",
-        },
-      ]}
-      faqs={[
-        {
-          question: "Can you provide 24/7 support?",
-          answer: "Yes. We can build support schedules that match your business requirements, including 24/7 coverage across multiple time zones.",
-        },
-        {
-          question: "Can your agents represent our brand?",
-          answer: "Absolutely. Our teams are trained specifically on your products, services, and communication standards to ensure brand consistency.",
-        },
-        {
-          question: "How do you measure support quality?",
-          answer: "We track CSAT, NPS, first response time, resolution time, and other KPIs with regular reporting and quality audits.",
-        },
-      ]}
+      ctaTitle="Ready to Transform Your Customer Experience?"
+      ctaDescription="Contact us today to discuss how Solvigos can support your business."
     />
   );
 }

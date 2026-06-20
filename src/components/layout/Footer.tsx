@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { IconArrowRight } from "@tabler/icons-react";
 
 const serviceLinks = [
@@ -36,18 +37,26 @@ const socialLinks = [
 
 export function Footer() {
   return (
-    <footer className="bg-navy">
+    <footer className="bg-[#000f30]">
       {/* Top: Logo + divider */}
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 pt-16 pb-10">
-        <div className="flex items-center gap-2 mb-10">
-          <span className="text-[22px] font-bold text-white tracking-tight">
-            Solvi<span className="text-blue">gos</span>
+        <div className="flex items-center gap-0 mb-10">
+          <Image
+            src="/logo1.png"
+            alt="Solvigos"
+            width={110}
+            height={110}
+            className="object-contain brightness-0 invert"
+          />
+          <span className="text-3xl font-bold text-white tracking-tight">
+            Solvigos
           </span>
         </div>
         <div className="h-px bg-blue-800" />
 
         {/* Columns */}
         <div className="mt-12 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-10 lg:gap-8">
+          {/* Services */}
           {/* Services */}
           <div>
             <h3 className="text-[15px] font-bold text-white mb-5">Services</h3>

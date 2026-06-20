@@ -3,216 +3,207 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { IconArrowRight } from "@tabler/icons-react";
-import { Accordion } from "@/components/ui/Accordion";
+import { IconArrowRight, IconCheck } from "@tabler/icons-react";
 
-type ServiceCard = {
-  num: string;
+type Feature = {
+  icon: React.ReactNode;
   title: string;
-  desc: string;
+  description: string;
 };
 
-type PopularService = {
+type KeyFeature = {
   title: string;
-  image: string;
-  desc: string;
+  description: string;
 };
 
 type ServicePageProps = {
   title: string;
   subtitle: string;
   description: string;
-  experienceText?: string;
-  serviceCards: ServiceCard[];
-  popularServices: PopularService[];
-  faqs?: { question: string; answer: string }[];
+  heroImage?: string;
+  features: Feature[];
+  keyFeatures: KeyFeature[];
+  ctaTitle?: string;
+  ctaDescription?: string;
 };
 
 export function ServiceLayout({
   title,
   subtitle,
   description,
-  experienceText = "We have over 25 years of experience.",
-  serviceCards,
-  popularServices,
-  faqs,
+  heroImage = "/solutions.png",
+  features,
+  keyFeatures,
+  ctaTitle = "Ready to Transform Your Customer Experience?",
+  ctaDescription = "Contact us today to discuss how Solvigos can support your business.",
 }: ServicePageProps) {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative bg-navy pt-32 sm:pt-40 pb-16 overflow-hidden">
-        <div className="absolute inset-0 opacity-20">
-          <Image
-            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1600&q=80"
-            alt="Team collaboration"
-            fill
-            className="object-cover"
-          />
-        </div>
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 relative z-10 text-center">
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white"
-          >
-            {title}
-          </motion.h1>
-          <motion.nav
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="mt-4 flex items-center justify-center gap-2 text-sm text-blue-200"
-          >
-            <Link href="/" className="hover:text-white transition-colors">Home</Link>
-            <span>→</span>
-            <span className="text-white">{subtitle}</span>
-          </motion.nav>
-        </div>
-      </section>
+      <section className="relative bg-white overflow-hidden min-h-[600px]">
+        {/* Large organic purple blob - top right */}
+        <div className="absolute top-[-150px] right-[-150px] w-[700px] h-[700px] bg-[#3730A3] rounded-full opacity-90"></div>
+        <div className="absolute top-[-50px] right-[0px] w-[500px] h-[500px] bg-[#4338CA] rounded-full opacity-80"></div>
+        
+        {/* Turquoise accent shapes */}
+        <div className="absolute top-[100px] right-[150px] w-[200px] h-[200px] bg-[#72E3E8] rounded-full opacity-60"></div>
+        <div className="absolute bottom-[50px] right-[100px] w-[150px] h-[150px] bg-[#72E3E8] rounded-full opacity-40"></div>
+        
+        {/* Floating decorative turquoise arc - bottom left */}
+        <div className="absolute bottom-[-100px] left-[-50px] w-[300px] h-[300px] border-[40px] border-[#72E3E8] rounded-full opacity-30"></div>
 
-      {/* Experience Section */}
-      <section className="bg-white py-16 sm:py-20">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-            >
-              <h2
-                className="text-3xl sm:text-4xl lg:text-5xl font-bold text-blue leading-tight"
-                style={{ fontFamily: "var(--font-serif)" }}
+        <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 py-20 sm:py-24 lg:py-32">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Left Side - Content */}
+            <div className="space-y-6">
+              <h1
+                className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#1A1A2E] leading-tight"
+                style={{ fontFamily: "Inter, sans-serif" }}
               >
-                {experienceText}
-              </h2>
-            </motion.div>
-            <div className="hidden lg:block w-px h-40 bg-border mx-auto" />
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="text-body leading-relaxed"
-            >
-              {description}
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* What We Do For You - Numbered Cards */}
-      <section className="bg-ice py-16 sm:py-20">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
-          <div className="text-center mb-12">
-            <p className="text-sm font-semibold text-blue uppercase tracking-wider">Service we provide</p>
-            <h2
-              className="mt-2 text-3xl sm:text-4xl font-bold text-navy"
-              style={{ fontFamily: "var(--font-serif)" }}
-            >
-              What We Do For You
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {serviceCards.map((card, i) => (
-              <motion.div
-                key={card.num}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.1 }}
-                className="relative bg-navy rounded-xl p-6 pt-10"
-              >
-                <div className="absolute -top-3 left-6 bg-blue text-white text-sm font-bold px-3 py-1 rounded">
-                  {card.num}
-                </div>
-                <h3 className="text-lg font-bold text-white uppercase">{card.title}</h3>
-                <p className="mt-3 text-sm text-blue-200 leading-relaxed">{card.desc}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Our Popular Services */}
-      <section className="bg-white py-16 sm:py-20">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
-          <div className="text-center mb-12">
-            <p className="text-sm font-semibold text-blue uppercase tracking-wider">Service we provide</p>
-            <h2
-              className="mt-2 text-3xl sm:text-4xl font-bold text-navy"
-              style={{ fontFamily: "var(--font-serif)" }}
-            >
-              Our Popular Services
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {popularServices.map((service, i) => (
-              <motion.div
-                key={service.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.1 }}
-                className="group"
-              >
-                <div className="relative h-56 rounded-xl overflow-hidden">
-                  <Image
-                    src={service.image}
-                    alt={service.title}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-navy/90 to-transparent p-5">
-                    <h3 className="text-lg font-bold text-white">{service.title}</h3>
-                  </div>
-                </div>
-                <p className="mt-4 text-sm text-body leading-relaxed">{service.desc}</p>
+                {title}
+              </h1>
+              <p className="text-lg text-gray-600 leading-relaxed max-w-lg">
+                {description}
+              </p>
+              <div className="flex flex-wrap gap-4 pt-4">
                 <Link
                   href="/contact"
-                  className="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-navy hover:text-blue transition-colors"
+                  className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-base bg-[#FF7A59] text-white hover:bg-[#E86A4A] transition-colors shadow-lg shadow-[#FF7A59]/30"
                 >
-                  Continue Reading <IconArrowRight size={16} />
+                  Start a free trial
                 </Link>
+                <button className="inline-flex items-center gap-3 px-6 py-4 rounded-full font-semibold text-base text-[#1A1A2E] hover:bg-gray-100 transition-colors">
+                  <span className="w-10 h-10 rounded-full bg-[#1A1A2E] flex items-center justify-center">
+                    <span className="text-white text-sm">▶</span>
+                  </span>
+                  Watch the demo
+                </button>
+              </div>
+            </div>
+
+            {/* Right Side - Illustration */}
+            <div className="relative flex justify-center lg:justify-end">
+              {/* Turquoise speech bubble shape background */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[400px] bg-[#72E3E8] rounded-[40px] rounded-bl-none opacity-80"></div>
+              
+              <div className="relative w-full max-w-lg z-10">
+                <Image
+                  src={heroImage}
+                  alt={title}
+                  width={600}
+                  height={500}
+                  className="w-full h-auto object-contain drop-shadow-2xl"
+                  priority
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Overview Section */}
+      <section className="bg-white py-20 sm:py-24">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
+          <div className="text-center mb-16">
+            <h2
+              className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1A1A2E]"
+              style={{ fontFamily: "Inter, sans-serif" }}
+            >
+              The software that supports special events
+            </h2>
+            <p className="mt-4 text-gray-500 max-w-2xl mx-auto text-lg">
+              Solvigos is a web-based dialer and practical CRM solution for telemarketing, fundraising, and appointment scheduling businesses.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {features.map((feature, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                className="text-center"
+              >
+                <div className="w-16 h-16 mx-auto mb-4 rounded-2xl bg-[#EEF2FF] flex items-center justify-center text-[#3730A3]">
+                  {feature.icon}
+                </div>
+                <h3 className="text-lg font-bold text-[#1A1A2E] mb-2">
+                  {feature.title}
+                </h3>
+                <p className="text-sm text-gray-500 leading-relaxed">
+                  {feature.description}
+                </p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* FAQ Section */}
-      {faqs && (
-        <section className="bg-ice py-16 sm:py-20">
-          <div className="max-w-3xl mx-auto px-6 sm:px-8 lg:px-10">
-            <div className="text-center mb-10">
-              <h2
-                className="text-3xl sm:text-4xl font-bold text-navy"
-                style={{ fontFamily: "var(--font-serif)" }}
-              >
-                Frequently Asked Questions
-              </h2>
-            </div>
-            <Accordion items={faqs} />
+      {/* Key Features Section */}
+      <section className="bg-[#F8FAFC] py-20 sm:py-24">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
+          <div className="text-center mb-12">
+            <h2
+              className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1A1A2E]"
+              style={{ fontFamily: "Inter, sans-serif" }}
+            >
+              Key features
+            </h2>
+            <p className="mt-4 text-gray-500 max-w-2xl mx-auto text-lg">
+              Numerous features make it possible to customize the system according to all your needs.
+            </p>
           </div>
-        </section>
-      )}
 
-      {/* Final CTA */}
-      <section className="bg-navy py-16 sm:py-20">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 text-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {keyFeatures.map((feature, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow"
+              >
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-full bg-[#3730A3] flex items-center justify-center flex-shrink-0">
+                    <IconCheck size={20} className="text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold text-[#1A1A2E] mb-2">
+                      {feature.title}
+                    </h3>
+                    <p className="text-sm text-gray-500 leading-relaxed">
+                      {feature.description}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="bg-[#3730A3] py-20 sm:py-24 relative overflow-hidden">
+        {/* Decorative shapes */}
+        <div className="absolute top-[-100px] right-[-100px] w-[300px] h-[300px] bg-[#4338CA] rounded-full opacity-50"></div>
+        <div className="absolute bottom-[-50px] left-[-50px] w-[200px] h-[200px] bg-[#72E3E8] rounded-full opacity-20"></div>
+        
+        <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 text-center">
           <h2
             className="text-3xl sm:text-4xl font-bold text-white"
-            style={{ fontFamily: "var(--font-serif)" }}
+            style={{ fontFamily: "Inter, sans-serif" }}
           >
-            Ready to Transform Your Customer Experience?
+            {ctaTitle}
           </h2>
-          <p className="mt-4 text-blue-200 max-w-xl mx-auto">
-            Contact us today to discuss how Solvigos can support your business.
+          <p className="mt-4 text-white/70 max-w-xl mx-auto text-lg">
+            {ctaDescription}
           </p>
           <Link
             href="/contact"
-            className="mt-8 inline-flex items-center gap-3 bg-blue hover:opacity-90 text-white font-semibold text-base px-8 py-4 rounded-full transition-all hover:scale-[1.03] shadow-lg shadow-blue/25"
+            className="mt-8 inline-flex items-center gap-3 bg-[#FF7A59] hover:bg-[#E86A4A] text-white font-semibold text-base px-8 py-4 rounded-full transition-all hover:scale-[1.03] shadow-lg shadow-[#FF7A59]/30"
           >
             Get a Quote
             <IconArrowRight size={18} />

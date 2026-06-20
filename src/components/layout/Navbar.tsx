@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { IconMenu2 } from "@tabler/icons-react";
 import { MobileMenu } from "./MobileMenu";
@@ -46,6 +47,8 @@ export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+  const isServicesPage = pathname.startsWith("/services");
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -70,12 +73,12 @@ export function Navbar() {
               scrolled ? "gap-4 lg:gap-30" : "gap-4 lg:gap-30"
             }`}>
               <Link href="/" className="flex items-center gap-0">
-                <Image src="/logo.png" alt="Solvigos" width={110} height={110} className={`object-contain transition-all duration-300 ${
+                <Image src="/logo1.png" alt="Solvigos" width={110} height={110} className={`object-contain transition-all duration-300 ${
                   scrolled ? "w-5 h-5 sm:w-10 sm:h-10 lg:w-15 lg:h-15" : "w-9 h-9 sm:w-12 sm:h-12 lg:w-23 lg:h-23"
-                }`} style={{ filter: scrolled ? "none" : "brightness(0) invert(1)" }} />
+                }`} style={{ filter: scrolled || isServicesPage ? "none" : "brightness(0) invert(1)" }} />
                 <span className={`font-bold tracking-tight transition-all duration-300 ${
                   scrolled ? "text-[10px] sm:text-xs lg:text-lg" : "text-xs sm:text-sm lg:text-2xl"
-                } ${scrolled ? "text-navy" : "text-white"}`}>olvigos</span>
+                } ${scrolled || isServicesPage ? "text-navy" : "text-white"}`}>Solvigos</span>
               </Link>
 
               <div className="hidden lg:flex items-center gap-1">
@@ -89,7 +92,7 @@ export function Navbar() {
                     >
                       <button className={`px-4 py-2 font-medium transition-all duration-300 ${
                           scrolled ? "text-base" : "text-lg"
-                        } ${scrolled ? "text-navy" : "text-white"} hover:text-blue rounded-md transition-colors`}>
+                        } ${scrolled || isServicesPage ? "text-navy" : "text-white"} hover:text-blue rounded-md transition-colors`}>
                         {link.label}
                       </button>
                       <AnimatePresence>
@@ -120,7 +123,7 @@ export function Navbar() {
                         href={link.href}
                         className={`px-4 py-2 font-medium transition-all duration-300 ${
                           scrolled ? "text-base" : "text-lg"
-                        } ${scrolled ? "text-navy" : "text-white"} hover:text-blue rounded-md transition-colors`}
+                        } ${scrolled || isServicesPage ? "text-navy" : "text-white"} hover:text-blue rounded-md transition-colors`}
                       >
                         {link.label}
                       </Link>
@@ -145,7 +148,7 @@ export function Navbar() {
                 className="lg:hidden p-2"
                 onClick={() => setMobileOpen(true)}
               >
-                <IconMenu2 size={scrolled ? 20 : 24} className={scrolled ? "text-navy" : "text-white"} />
+                <IconMenu2 size={scrolled ? 20 : 24} className={scrolled || isServicesPage ? "text-navy" : "text-white"} />
               </button>
             </div>
           </div>

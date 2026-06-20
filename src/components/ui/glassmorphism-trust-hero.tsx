@@ -57,7 +57,7 @@ export default function HeroSection() {
       `}</style>
 
       <div
-        className="absolute inset-0 z-0 bg-[url(https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1600&q=80)] bg-cover bg-center opacity-30"
+        className="absolute inset-0 z-0 bg-[url(/landingPage.png)] bg-cover bg-center opacity-30"
         style={{
           maskImage: "linear-gradient(180deg, transparent, black 0%, black 70%, transparent)",
           WebkitMaskImage: "linear-gradient(180deg, transparent, black 0%, black 70%, transparent)",
@@ -109,7 +109,7 @@ export default function HeroSection() {
               </a>
 
               <a
-                href="/services/customer-support"
+                href="/services"
                 className="group inline-flex items-center justify-center gap-3 rounded-full border border-white/10 bg-white/5 px-10 py-5 text-lg font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white/10 hover:border-white/20"
               >
                 <Play className="w-5 h-5 fill-current" />
@@ -188,7 +188,7 @@ export default function HeroSection() {
                       className="flex items-center gap-2 opacity-50 transition-all hover:opacity-100 hover:scale-105 cursor-default grayscale hover:grayscale-0"
                     >
                       {client.logo ? (
-                        <Image src={client.logo} alt={client.name} width={22} height={22} className="object-contain" style={client.invert ? { filter: "brightness(0) invert(1)" } : undefined} />
+                        <Image src={client.logo} alt={client.name} width={22} height={22} className="object-contain" style={{ ...(client.invert ? { filter: "brightness(0) invert(1)" } : {}), height: "auto" }} />
                       ) : (
                         <span className="flex items-center justify-center w-6 h-6 rounded-md bg-blue/30 text-blue-300 text-[10px] font-bold">
                           {client.name.charAt(0)}

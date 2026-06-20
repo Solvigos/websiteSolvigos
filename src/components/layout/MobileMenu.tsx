@@ -44,7 +44,7 @@ export function MobileMenu({
           >
             <div className="flex items-center justify-between p-4 border-b border-border">
               <div className="flex items-center gap-0">
-                <Image src="/logo.png" alt="Solvigos" width={28} height={28} className="object-contain" />
+                <Image src="/logo1.png" alt="Solvigos" width={28} height={28} className="object-contain" />
                 <span className="text-lg font-bold text-navy">Solvigos</span>
               </div>
               <button onClick={onClose} className="p-1 text-body hover:text-navy">

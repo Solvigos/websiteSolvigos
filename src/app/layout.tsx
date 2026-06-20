@@ -23,13 +23,13 @@ const playfair = Playfair_Display({
 
 export const metadata: Metadata = {
   title: {
-    default: "Solvigos — Customer Support Outsourcing",
-    template: "%s | Solvigos",
+    default: "Customer Support Outsourcing",
+    template: "%s",
   },
   description:
     "Deliver exceptional customer experiences without the cost and complexity of building an in-house support department.",
   icons: {
-    icon: "/logo.png",
+    icon: "/title.svg",
   },
 };
 

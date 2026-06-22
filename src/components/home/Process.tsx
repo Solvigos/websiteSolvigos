@@ -90,16 +90,7 @@ export function Process() {
             </h3>
             <a
               href="/contact"
-              className="px-8 py-4 rounded-full font-semibold transition-all duration-200 whitespace-nowrap"
-              style={{ backgroundColor: "#007B7B", color: "white" }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = "#f4ffff";
-                e.currentTarget.style.color = "black";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = "#007B7B";
-                e.currentTarget.style.color = "white";
-              }}
+              className="px-8 py-4 rounded-full font-semibold transition-all duration-200 whitespace-nowrap bg-[#007b7b] hover:bg-[#00f4f4] hover:text-black text-white"
             >
               Speak With an Expert
             </a>

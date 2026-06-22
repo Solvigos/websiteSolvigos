@@ -6,78 +6,60 @@ import { motion } from "framer-motion";
 const testimonials = [
   {
     name: "Bilal Ahmed",
-    role: "IT Manager",
-    text: "The support team is exceptional, guiding us through setup and providing ongoing assistance, ensuring our satisfaction.",
-    avatar: "https://i.pravatar.cc/150?img=11",
+    role: "Head of Customer Success, SaaS Startup",
+    text: "Solvigos transformed our customer support. Our response times dropped by 60% and CSAT scores went from 72% to 94% within three months.",
   },
   {
     name: "Omar Raza",
-    role: "CEO",
-    text: "Its robust features and quick support have transformed our workflow, making us significantly more efficient.",
-    avatar: "https://i.pravatar.cc/150?img=12",
+    role: "VP Operations, eCommerce Brand",
+    text: "Their help desk team became a seamless extension of our brand. We finally have 24/7 coverage without the overhead of building an in-house team.",
   },
   {
     name: "Sana Sheikh",
-    role: "Sales Manager",
-    text: "They delivered a solution that exceeded expectations, understanding our needs and enhancing our operations.",
-    avatar: "https://i.pravatar.cc/150?img=5",
+    role: "Founder, EdTech Platform",
+    text: "From onboarding to renewals, Solvigos handles our entire customer lifecycle. Student satisfaction is at an all-time high.",
   },
   {
     name: "Saman Malik",
-    role: "Customer Support Lead",
-    text: "This ERP revolutionized our operations, streamlining finance and inventory. The cloud-based platform keeps us productive, even remotely.",
-    avatar: "https://i.pravatar.cc/150?img=9",
+    role: "Director of Support, Healthcare SaaS",
+    text: "They understood the sensitivity healthcare support demands. HIPAA-compliant, empathetic, and always professional. Highly recommend.",
   },
   {
     name: "Zainab Hussain",
-    role: "Project Manager",
-    text: "Using this ERP, our online presence and conversions significantly improved, boosting business performance.",
-    avatar: "https://i.pravatar.cc/150?img=16",
+    role: "COO, Travel & Hospitality Company",
+    text: "Our booking support used to be chaotic. Solvigos streamlined everything with their CRM setup and dedicated support agents. Game changer.",
   },
   {
     name: "Hassan Ali",
     role: "E-commerce Manager",
-    text: "Our business functions improved with a user-friendly design and positive customer feedback.",
-    avatar: "https://i.pravatar.cc/150?img=14",
+    text: "They handled our back-office operations so well that we scaled 3x without hiring a single additional admin person. Pure efficiency.",
   },
   {
     name: "Briana Patton",
-    role: "Operations Manager",
-    text: "The smooth implementation exceeded expectations. It streamlined processes, improving overall business performance.",
-    avatar: "https://i.pravatar.cc/150?img=23",
+    role: "CTO, SaaS Company",
+    text: "Their technical support team resolved Tier 1-3 issues faster than our previous vendor. Escalation workflows were seamless from day one.",
   },
   {
     name: "Aliza Khan",
-    role: "Business Analyst",
-    text: "Our business functions improved with a user-friendly design and positive customer feedback.",
-    avatar: "https://i.pravatar.cc/150?img=25",
+    role: "Customer Experience Lead, Retail Brand",
+    text: "Solvigos built our omnichannel support from scratch. Live chat, email, phone — everything works in perfect sync now.",
   },
   {
     name: "Farhan Siddiqui",
-    role: "Marketing Director",
-    text: "This ERP's seamless integration enhanced our business operations and customer satisfaction.",
-    avatar: "https://i.pravatar.cc/150?img=33",
+    role: "Marketing Director, Tech Startup",
+    text: "The chatbot they implemented handles 40% of our support tickets automatically. Our team can finally focus on complex cases.",
   },
 ];
 
 function TestimonialCard({ testimonial }: { testimonial: typeof testimonials[0] }) {
   return (
-    <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 mb-5">
+    <div className="bg-[#FFFCFA] rounded-2xl p-6 shadow-sm border border-gray-100 mb-5">
       <p className="text-gray-600 text-sm leading-relaxed mb-4">
         {testimonial.text}
       </p>
-      <div className="flex items-center gap-3">
-        <img
-          src={testimonial.avatar}
-          alt={testimonial.name}
-          width={40}
-          height={40}
-          className="rounded-full object-cover"
-        />
-        <div>
-          <p className="text-sm font-semibold text-[#1A2B5F]">{testimonial.name}</p>
-          <p className="text-xs text-gray-500">{testimonial.role}</p>
-        </div>
+      <div>
+        <p className="text-sm font-semibold text-[#1A2B5F]">{testimonial.name}</p>
+        <p className="text-xs text-gray-500">{testimonial.role}</p>
       </div>
     </div>
   );

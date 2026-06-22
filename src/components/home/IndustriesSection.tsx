@@ -38,21 +38,21 @@ const industries = [
     title: "Healthcare",
     subtitle: "Reliable Support With the Sensitivity It Demands",
     description:
-      "Patient communication requires accuracy, empathy, and discretion. We support healthcare providers with patient-facing assistance, appointment coordination, administrative processing, and back-office operations — handled with the care your patients deserve.",
+      "Patient communication requires accuracy, empathy, and discretion. We support healthcare providers with patient-facing assistance, appointment coordination, administrative processing, and back-office operations handled with the care your patients deserve.",
   },
   {
     icon: IconSchool,
     title: "Education",
     subtitle: "Supporting Students From Enrollment to Completion",
     description:
-      "Educational institutions need responsive, knowledgeable support teams. We assist with student inquiries, enrollment support, academic help desk services, and administrative operations — helping institutions deliver a better experience at every stage.",
+      "Educational institutions need responsive, knowledgeable support teams. We assist with student inquiries, enrollment support, academic help desk services, and administrative operations helping institutions deliver a better experience at every stage.",
   },
   {
     icon: IconPlane,
     title: "Travel & Hospitality",
     subtitle: "Every Interaction Is Part of the Experience",
     description:
-      "Travelers expect instant, knowledgeable responses at every touchpoint. We support booking management, guest inquiries, itinerary assistance, concierge operations, and complaint resolution — delivering the seamless experience your customers expect before, during, and after their journey.",
+      "Travelers expect instant, knowledgeable responses at every touchpoint. We support booking management, guest inquiries, itinerary assistance, concierge operations, and complaint resolution delivering the seamless experience your customers expect before, during, and after their journey.",
   },
 ];
 
@@ -126,16 +126,7 @@ export function IndustriesSection() {
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 px-12 py-5 rounded-full font-semibold text-lg transition-all duration-200"
-            style={{ backgroundColor: "#007b7b", color: "white" }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = "#f4ffff";
-              e.currentTarget.style.color = "black";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = "#007b7b";
-              e.currentTarget.style.color = "white";
-            }}
+            className="inline-flex items-center gap-2 px-12 py-5 rounded-full font-semibold text-lg transition-all duration-300 hover:scale-105 shadow-lg bg-[#007b7b] hover:bg-[#00f4f4] hover:text-black text-white"
           >
             Talk to Our Team
             <span>→</span>

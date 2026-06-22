@@ -8,6 +8,11 @@ import {
   IconBuilding,
   IconWorld,
 } from "@tabler/icons-react";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Services",
+};
 
 const services = [
   {
@@ -71,12 +76,12 @@ export default function ServicesPage() {
                 <br />
                 built around your business
               </h1>
-              <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
+              <p className="text-base sm:text-lg text-black-600 leading-relaxed">
                 From customer support to back-office operations, we help you deliver exceptional experiences without the cost and complexity of building it all in-house.
               </p>
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-base transition-all duration-200 bg-[#007b7b] text-white hover:bg-[#f4ffff] hover:text-black"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-base transition-all duration-300 bg-[#007b7b] hover:bg-[#00f4f4] hover:text-black text-white hover:scale-105 shadow-lg"
               >
                 Schedule a Free Consultation
                 <span>→</span>
@@ -130,59 +135,59 @@ export default function ServicesPage() {
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {/* Row 1 */}
-            <div className="flex items-center gap-3 px-5 py-4 rounded-full bg-[#f0f0ff] hover:bg-[#e5e5ff] transition-colors cursor-pointer">
+            <Link href="/services/customer-support" className="flex items-center gap-3 px-5 py-4 rounded-full bg-[#f0f0ff] hover:bg-[#e5e5ff] transition-colors group">
               <IconHeadset size={20} className="text-purple-500" />
-              <span className="font-medium text-sm text-gray-700">Customer Experience</span>
-            </div>
+              <span className="font-medium text-sm text-gray-700 group-hover:text-purple-600">Customer Experience</span>
+            </Link>
 
-            <div className="flex items-center gap-3 px-5 py-4 rounded-full bg-[#fff0f0] hover:bg-[#ffe5e5] transition-colors cursor-pointer">
+            <Link href="/services/customer-conversion" className="flex items-center gap-3 px-5 py-4 rounded-full bg-[#fff0f0] hover:bg-[#ffe5e5] transition-colors group">
               <IconAntenna size={20} className="text-pink-500" />
-              <span className="font-medium text-sm text-gray-700">Customer Conversion</span>
-            </div>
+              <span className="font-medium text-sm text-gray-700 group-hover:text-pink-600">Customer Conversion</span>
+            </Link>
 
-            <div className="flex items-center gap-3 px-5 py-4 rounded-full bg-[#f0fff0] hover:bg-[#e5ffe5] transition-colors cursor-pointer">
+            <Link href="/services/customer-onboarding" className="flex items-center gap-3 px-5 py-4 rounded-full bg-[#f0fff0] hover:bg-[#e5ffe5] transition-colors group">
               <IconClipboardList size={20} className="text-emerald-500" />
-              <span className="font-medium text-sm text-gray-700">Customer Onboarding</span>
-            </div>
+              <span className="font-medium text-sm text-gray-700 group-hover:text-emerald-600">Customer Onboarding</span>
+            </Link>
 
-            <div className="flex items-center gap-3 px-5 py-4 rounded-full bg-[#fff8f0] hover:bg-[#ffeed9] transition-colors cursor-pointer">
+            <Link href="/services/customer-support" className="flex items-center gap-3 px-5 py-4 rounded-full bg-[#fff8f0] hover:bg-[#ffeed9] transition-colors group">
               <IconHeadset size={20} className="text-orange-500" />
-              <span className="font-medium text-sm text-gray-700">Customer Support</span>
-            </div>
+              <span className="font-medium text-sm text-gray-700 group-hover:text-orange-600">Customer Support</span>
+            </Link>
 
             {/* Row 2 */}
-            <div className="flex items-center gap-3 px-5 py-4 rounded-full bg-[#f0f8ff] hover:bg-[#e5f3ff] transition-colors cursor-pointer">
+            <Link href="/services/technical-support" className="flex items-center gap-3 px-5 py-4 rounded-full bg-[#f0f8ff] hover:bg-[#e5f3ff] transition-colors group">
               <IconAntenna size={20} className="text-blue-500" />
-              <span className="font-medium text-sm text-gray-700">Technical Support</span>
-            </div>
+              <span className="font-medium text-sm text-gray-700 group-hover:text-blue-600">Technical Support</span>
+            </Link>
 
-            <div className="flex items-center gap-3 px-5 py-4 rounded-full bg-[#f5f0ff] hover:bg-[#ede5ff] transition-colors cursor-pointer">
+            <Link href="/services/customer-renewals" className="flex items-center gap-3 px-5 py-4 rounded-full bg-[#f5f0ff] hover:bg-[#ede5ff] transition-colors group">
               <IconClipboardList size={20} className="text-violet-500" />
-              <span className="font-medium text-sm text-gray-700">Customer Renewals</span>
-            </div>
+              <span className="font-medium text-sm text-gray-700 group-hover:text-violet-600">Customer Renewals</span>
+            </Link>
 
-            <div className="flex items-center gap-3 px-5 py-4 rounded-full bg-[#ffe8c5] hover:bg-[#ffd9a0] transition-colors cursor-pointer">
+            <Link href="/services/bpo-back-office" className="flex items-center gap-3 px-5 py-4 rounded-full bg-[#ffe8c5] hover:bg-[#ffd9a0] transition-colors group">
               <IconBuilding size={20} className="text-amber-600" />
-              <span className="font-medium text-sm text-gray-700">BPO & Back-Office</span>
-            </div>
+              <span className="font-medium text-sm text-gray-700 group-hover:text-amber-700">BPO & Back-Office</span>
+            </Link>
 
-            <div className="flex items-center gap-3 px-5 py-4 rounded-full bg-[#fff0ff] hover:bg-[#ffe5ff] transition-colors cursor-pointer">
+            <Link href="/services/crm-chatbot" className="flex items-center gap-3 px-5 py-4 rounded-full bg-[#fff0ff] hover:bg-[#ffe5ff] transition-colors group">
               <IconMessageChatbot size={20} className="text-fuchsia-500" />
-              <span className="font-medium text-sm text-gray-700">CRM & Chatbot Setup</span>
-            </div>
+              <span className="font-medium text-sm text-gray-700 group-hover:text-fuchsia-600">CRM & Chatbot Setup</span>
+            </Link>
           </div>
 
           {/* Row 3 - Centered */}
           <div className="flex justify-center gap-4 mt-4">
-            <div className="flex items-center gap-3 px-5 py-4 rounded-full bg-[#f0ffff] hover:bg-[#e5ffff] transition-colors cursor-pointer">
+            <Link href="/services/help-desk-management" className="flex items-center gap-3 px-5 py-4 rounded-full bg-[#f0ffff] hover:bg-[#e5ffff] transition-colors group">
               <IconClipboardList size={20} className="text-teal-500" />
-              <span className="font-medium text-sm text-gray-700">Help Desk Management</span>
-            </div>
+              <span className="font-medium text-sm text-gray-700 group-hover:text-teal-600">Help Desk Management</span>
+            </Link>
 
-            <div className="flex items-center gap-3 px-5 py-4 rounded-full bg-[#f0fff5] hover:bg-[#e5ffed] transition-colors cursor-pointer">
+            <Link href="/services/web-development" className="flex items-center gap-3 px-5 py-4 rounded-full bg-[#f0fff5] hover:bg-[#e5ffed] transition-colors group">
               <IconWorld size={20} className="text-green-500" />
-              <span className="font-medium text-sm text-gray-700">Web Development</span>
-            </div>
+              <span className="font-medium text-sm text-gray-700 group-hover:text-green-600">Web Development</span>
+            </Link>
           </div>
         </div>
       </section>
@@ -380,7 +385,6 @@ export default function ServicesPage() {
               </Link>
             </div>
           </div>
-
         </div>
       </section>
 
@@ -395,7 +399,7 @@ export default function ServicesPage() {
           </h2>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 px-12 py-5 rounded-full font-semibold text-lg transition-all duration-200 bg-[#007b7b] text-white hover:bg-[#f4ffff] hover:text-black"
+            className="inline-flex items-center gap-2 px-12 py-5 rounded-full font-semibold text-lg transition-all duration-300 bg-[#007b7b] hover:bg-[#00f4f4] hover:text-black text-white hover:scale-105 shadow-lg"
           >
             Speak With an Expert
             <span>→</span>

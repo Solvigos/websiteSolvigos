@@ -1,5 +1,5 @@
-import HeroSection from "@/components/ui/glassmorphism-trust-hero";
-import { Case } from "@/components/ui/cases-with-infinite-scroll";
+import HeroSection from "@/components/home/glassmorphism-trust-hero";
+import { Case } from "@/components/home/cases-with-infinite-scroll";
 import { WhySolvigos } from "@/components/home/WhySolvigos";
 import { ServicesGrid } from "@/components/home/ServicesGrid";
 import { Process } from "@/components/home/Process";

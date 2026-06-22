@@ -5,6 +5,11 @@ import {
   IconMessage,
   IconUsers,
 } from "@tabler/icons-react";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Customer Support",
+};
 
 export default function CustomerSupportPage() {
   return (
@@ -13,6 +18,7 @@ export default function CustomerSupportPage() {
       subtitle="Services 01"
       description="We help call centers boost KPIs, make better decisions based on insights, and manage contacts more wisely."
       heroImage="/solutions.png"
+      currentService="customer-support"
       features={[
         {
           icon: <IconHeadset size={28} />,
@@ -73,6 +79,11 @@ export default function CustomerSupportPage() {
       ]}
       ctaTitle="Ready to Transform Your Customer Experience?"
       ctaDescription="Contact us today to discuss how Solvigos can support your business."
+      faqItems={[
+        { question: "What channels do you support?", answer: "We support live chat, email, social media (Instagram, Facebook, Twitter/X, and others), and phone/voice support. We can operate on whichever channels your customers prefer." },
+        { question: "Do you offer 24/7 support?", answer: "Yes. 24/7 coverage is available. We staff teams across multiple time zones so your customers can always reach someone — day, night, weekends, and holidays." },
+        { question: "How do you ensure your agents understand my brand and product?", answer: "Before going live, your team goes through a dedicated training program built around your brand guidelines, product knowledge, tone of voice, and common customer scenarios. We also run simulated interactions to ensure readiness." },
+      ]}
     />
   );
 }

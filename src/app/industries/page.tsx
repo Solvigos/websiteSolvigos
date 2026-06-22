@@ -1,47 +1,64 @@
+import Link from "next/link";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
+import {
+  IconBuildingStore,
+  IconCloud,
+  IconCpu,
+  IconHeart,
+  IconSchool,
+  IconPlane,
+  IconArrowRight,
+} from "@tabler/icons-react";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Industries",
+};
 
 const industries = [
   {
     id: "ecommerce",
     title: "eCommerce",
-    desc: "Handle high-volume customer inquiries, order management, returns, and product support for online stores.",
+    subtitle: "From Cart to Customer Loyalty",
+    desc: "Online shoppers expect fast answers and frictionless experiences. We handle order management, returns and refunds, live chat support, and customer inquiries — so your buyers stay happy and your team stays focused on growth.",
+    icon: <IconBuildingStore size={28} />,
   },
   {
     id: "saas",
     title: "SaaS",
-    desc: "Provide technical support, user onboarding, subscription management, and customer retention services.",
-  },
-  {
-    id: "healthcare",
-    title: "Healthcare",
-    desc: "Deliver HIPAA-compliant support, patient scheduling, and administrative assistance for healthcare providers.",
-  },
-  {
-    id: "fintech",
-    title: "Fintech",
-    desc: "Offer secure, compliant support for financial applications, transaction inquiries, and account management.",
-  },
-  {
-    id: "education",
-    title: "Education",
-    desc: "Support students, parents, and educators with enrollment, platform assistance, and technical troubleshooting.",
-  },
-  {
-    id: "professional",
-    title: "Professional Services",
-    desc: "Provide client onboarding, scheduling, billing support, and back-office management for service firms.",
-  },
-  {
-    id: "travel",
-    title: "Travel & Hospitality",
-    desc: "Handle booking support, travel modifications, customer inquiries, and concierge-level service.",
+    subtitle: "Support That Matches Your Product's Pace",
+    desc: "Subscription businesses live and die by retention. We provide technical support, user onboarding, help desk management, and CRM configuration that keeps your customers activated, engaged, and renewing.",
+    icon: <IconCloud size={28} />,
   },
   {
     id: "technology",
     title: "Technology",
-    desc: "Deliver technical support, product troubleshooting, and customer success services for tech companies.",
+    subtitle: "Specialized Support for Complex Products",
+    desc: "Tech companies need agents who understand the product, not just the script. We provide Tier 1 and Tier 2 technical support, bug reporting, knowledge base management, and escalation handling.",
+    icon: <IconCpu size={28} />,
+  },
+  {
+    id: "healthcare",
+    title: "Healthcare",
+    subtitle: "Reliable Support With the Sensitivity It Demands",
+    desc: "Patient communication requires accuracy, empathy, and discretion. We support healthcare providers with patient-facing assistance, appointment coordination, administrative processing, and back-office operations.",
+    icon: <IconHeart size={28} />,
+  },
+  {
+    id: "education",
+    title: "Education",
+    subtitle: "Supporting Students From Enrollment to Completion",
+    desc: "Educational institutions need responsive, knowledgeable support teams. We assist with student inquiries, enrollment support, academic help desk services, and administrative operations.",
+    icon: <IconSchool size={28} />,
+  },
+  {
+    id: "travel-hospitality",
+    title: "Travel & Hospitality",
+    subtitle: "Every Interaction Is Part of the Experience",
+    desc: "Travelers expect instant, knowledgeable responses at every touchpoint. We support booking management, guest inquiries, itinerary assistance, concierge operations, and complaint resolution.",
+    icon: <IconPlane size={28} />,
   },
 ];
 
@@ -64,19 +81,23 @@ export default function IndustriesPage() {
       </section>
 
       <Section background="white">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {industries.map((ind) => (
-            <div
+            <Link
               key={ind.id}
-              id={ind.id}
-              className="border border-border rounded-xl p-6 hover:border-blue hover:shadow-md transition-all"
+              href={`/industries/${ind.id}`}
+              className="block border border-border rounded-2xl p-6 hover:border-blue hover:shadow-lg transition-all group"
             >
-              <h2 className="text-xl font-bold text-navy">{ind.title}</h2>
-              <p className="mt-2 text-body leading-relaxed">{ind.desc}</p>
-              <Button href="/contact" variant="ghost" className="mt-4">
+              <div className="w-12 h-12 rounded-xl bg-ice flex items-center justify-center text-blue mb-4 group-hover:bg-blue group-hover:text-white transition-colors">
+                {ind.icon}
+              </div>
+              <h2 className="text-xl font-bold text-navy group-hover:text-blue transition-colors">{ind.title}</h2>
+              <p className="mt-1 text-sm font-medium text-blue">{ind.subtitle}</p>
+              <p className="mt-2 text-sm text-body leading-relaxed">{ind.desc}</p>
+              <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-blue">
                 Learn More &rarr;
-              </Button>
-            </div>
+              </span>
+            </Link>
           ))}
         </div>
       </Section>

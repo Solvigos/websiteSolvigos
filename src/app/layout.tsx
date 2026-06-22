@@ -24,7 +24,7 @@ const playfair = Playfair_Display({
 export const metadata: Metadata = {
   title: {
     default: "Customer Support Outsourcing",
-    template: "%s",
+    template: "%s | Customer Support Outsourcing",
   },
   description:
     "Deliver exceptional customer experiences without the cost and complexity of building an in-house support department.",

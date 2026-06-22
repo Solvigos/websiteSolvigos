@@ -181,7 +181,7 @@ export function WhySolvigos() {
         >
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 bg-[#1A2B5F] hover:bg-[#285ccc] text-white px-16 py-5 text-lg font-semibold rounded-full shadow-lg transition-all duration-300 hover:scale-105"
+            className="inline-flex items-center gap-2 bg-[#007b7b] hover:bg-[#00f4f4] hover:text-black text-white px-16 py-5 text-lg font-semibold rounded-full shadow-lg transition-all duration-300 hover:scale-105"
           >
             Talk to an Expert
           </Link>

@@ -9,6 +9,8 @@ export type BlogPostMeta = {
   date: string;
   category: string;
   excerpt: string;
+  readTime: string;
+  image: string;
 };
 
 export function getAllBlogPosts(): BlogPostMeta[] {
@@ -44,9 +46,13 @@ function parseFrontmatter(content: string): Record<string, string> {
   const match = content.match(/^---\n([\s\S]*?)\n---/);
   if (match) {
     match[1].split("\n").forEach((line) => {
-      const [key, ...rest] = line.split(":");
-      if (key && rest.length) {
-        meta[key.trim()] = rest.join(":").trim();
+      const colonIndex = line.indexOf(":");
+      if (colonIndex > 0) {
+        const key = line.substring(0, colonIndex).trim();
+        const value = line.substring(colonIndex + 1).trim().replace(/^["']|["']$/g, "");
+        if (key && value) {
+          meta[key] = value;
+        }
       }
     });
   }

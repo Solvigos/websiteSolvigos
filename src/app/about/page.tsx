@@ -1,119 +1,243 @@
-import { Section } from "@/components/ui/Section";
-import { Badge } from "@/components/ui/Badge";
-import { Button } from "@/components/ui/Button";
-import { IconHeart, IconShieldCheck, IconBulb, IconArrowsUp, IconEye } from "@tabler/icons-react";
+"use client";
+
+import Link from "next/link";
+import { IconArrowRight, IconUser, IconHeart, IconChartBar, IconMessageCircle, IconMoodSmile } from "@tabler/icons-react";
 
 const values = [
   {
-    icon: IconHeart,
+    icon: <IconUser size={22} />,
     title: "Customer First",
-    desc: "Every decision begins with understanding customer needs.",
+    description: "Every decision begins with understanding customer needs.",
   },
   {
-    icon: IconShieldCheck,
+    icon: <IconHeart size={22} />,
     title: "Accountability",
-    desc: "We take ownership of every interaction and outcome.",
+    description: "We take ownership of every interaction and outcome.",
   },
   {
-    icon: IconBulb,
+    icon: <IconChartBar size={22} />,
     title: "Innovation",
-    desc: "We continuously improve processes, technology, and service delivery.",
+    description: "We continuously improve processes, technology, and service delivery.",
   },
   {
-    icon: IconEye,
+    icon: <IconMessageCircle size={22} />,
     title: "Transparency",
-    desc: "We believe strong partnerships are built on trust and open communication.",
+    description: "We believe strong partnerships are built on trust and open communication.",
   },
   {
-    icon: IconArrowsUp,
+    icon: <IconMoodSmile size={22} />,
     title: "Continuous Improvement",
-    desc: "We embrace learning and growth to deliver better outcomes.",
+    description: "We embrace learning and growth to deliver better outcomes.",
   },
+];
+
+const stats = [
+  { value: "500+", label: "Projects Completed", detail: "Across multiple industries worldwide" },
+  { value: "200+", label: "Happy Clients", detail: "Trusted by businesses of all sizes" },
+  { value: "10+", label: "Years Experience", detail: "Delivering exceptional outsourcing solutions" },
 ];
 
 export default function AboutPage() {
   return (
     <>
-      <section className="bg-ice py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <Badge>About Us</Badge>
-            <h1 className="mt-4 text-4xl sm:text-5xl font-bold text-navy leading-tight">
-              Customer Experience Experts Focused on Your Success
-            </h1>
-            <p className="mt-6 text-lg text-body leading-relaxed">
-              At Solvigos, we believe exceptional customer experiences are the foundation of
-              long-term business growth. Our mission is to help organizations build stronger
-              customer relationships while improving operational efficiency through reliable
-              outsourcing solutions.
-            </p>
-            <p className="mt-4 text-lg text-body leading-relaxed">
-              We provide customer support outsourcing, technical support, business process
-              outsourcing, and web development services designed to help businesses scale
-              confidently and serve their customers more effectively.
-            </p>
+      {/* Section 1: Hero */}
+      <section className="bg-white py-20 sm:py-24 lg:py-32 overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            {/* Left: Content */}
+            <div className="space-y-8">
+              <h1
+                className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#1A1A2E] leading-[1.1]"
+                style={{ fontFamily: "var(--font-serif)" }}
+              >
+                Customer Experience Experts Focused on Your Success
+              </h1>
+              <p className="text-lg text-gray-600 leading-relaxed max-w-lg">
+                From enabling companies to flourish, to helping customers thrive.
+              </p>
+              <p className="text-base text-gray-500 leading-relaxed max-w-lg">
+                Founded to help successful companies solve for scale. By connecting your team
+                with a wider world of talent, you&apos;ll be able to free up resources, extend
+                capacity, and accelerate growth.
+              </p>
+            </div>
+
+            {/* Right: Illustration placeholder */}
+            <div className="flex justify-center lg:justify-end">
+              <div className="relative w-72 h-72 sm:w-96 sm:h-96 bg-[#F3F4FA] rounded-full flex items-center justify-center">
+                <div className="text-center text-gray-400">
+                  <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-white/60 flex items-center justify-center">
+                    <IconUser size={40} className="text-gray-300" />
+                  </div>
+                  <span className="text-sm">[Illustration]</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <Section background="white">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
-          <div>
-            <h2 className="text-2xl font-bold text-navy">Our Vision</h2>
-            <p className="mt-4 text-body leading-relaxed">
-              To become a trusted global partner for customer experience management and business
-              process outsourcing.
-            </p>
-          </div>
-          <div>
-            <h2 className="text-2xl font-bold text-navy">Our Mission</h2>
-            <p className="mt-4 text-body leading-relaxed">
-              To deliver professional, scalable, and results-driven outsourcing solutions that
-              create measurable value for our clients.
-            </p>
-          </div>
-        </div>
-      </Section>
+      {/* Curved divider to peach */}
+      <div className="bg-white">
+        <svg viewBox="0 0 1440 80" preserveAspectRatio="none" className="w-full h-16 sm:h-20">
+          <path d="M0,0 C480,80 960,80 1440,0 L1440,80 L0,80 Z" fill="#F3F4FA" />
+        </svg>
+      </div>
 
-      <Section background="ice">
-        <div className="text-center">
-          <h2 className="text-3xl font-bold text-navy">Our Values</h2>
-        </div>
-        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
-          {values.map((v) => {
-            const Icon = v.icon;
-            return (
+      {/* Section 2: Stats - People First */}
+      <section className="bg-[#F3F4FA] py-16 sm:py-20 lg:py-24">
+        <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-10">
+          <div className="mb-16">
+            <h2
+              className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1A1A2E] leading-tight max-w-2xl"
+              style={{ fontFamily: "var(--font-serif)" }}
+            >
+              It starts with putting our people first
+            </h2>
+            <p className="mt-6 text-gray-600 leading-relaxed max-w-2xl text-lg">
+              Our culture is built on a foundation of taking care of our own, investing in
+              continued education and wellness, and developing skills, because we know you
+              can&apos;t pour from an empty cup. The natural result? You and your customers
+              are well taken care of.
+            </p>
+          </div>
+
+          {/* Stat cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border border-gray-300 rounded-xl overflow-hidden bg-white">
+            {stats.map((stat, index) => (
               <div
-                key={v.title}
-                className="border border-border rounded-xl bg-white p-6 text-center"
+                key={index}
+                className={`p-8 sm:p-10 ${index < 2 ? "border-b md:border-b-0 md:border-r border-gray-300" : ""}`}
               >
-                <div className="w-12 h-12 bg-ice rounded-xl flex items-center justify-center mx-auto mb-4">
-                  <Icon size={24} className="text-blue" />
-                </div>
-                <h3 className="text-lg font-semibold text-navy">{v.title}</h3>
-                <p className="mt-2 text-sm text-body leading-relaxed">{v.desc}</p>
+                <p
+                  className="text-4xl sm:text-5xl font-light text-[#1A1A2E] mb-3"
+                  style={{ fontFamily: "var(--font-serif)" }}
+                >
+                  {stat.value}
+                </p>
+                <h3 className="text-sm font-bold text-[#1A1A2E] mb-3">
+                  {stat.label}
+                </h3>
+                <p className="text-xs text-gray-500 leading-relaxed">
+                  {stat.detail}
+                </p>
               </div>
-            );
-          })}
+            ))}
+          </div>
         </div>
-      </Section>
+      </section>
 
-      <Section background="white">
-        <div className="max-w-3xl mx-auto text-center">
-          <div className="bg-ice border border-tint rounded-xl p-8 sm:p-12">
-            <h2 className="text-2xl font-bold text-navy">Why Work With Us</h2>
-            <p className="mt-4 text-body leading-relaxed text-lg">
-              Our teams integrate seamlessly into your operations. We learn your processes,
-              understand your customers, and represent your brand as if it were our own.
-            </p>
-            <div className="mt-8">
-              <Button href="/contact" size="lg">
+      {/* Curved divider to white */}
+      <div className="bg-[#F3F4FA]">
+        <svg viewBox="0 0 1440 80" preserveAspectRatio="none" className="w-full h-16 sm:h-20">
+          <path d="M0,0 C480,80 960,80 1440,0 L1440,80 L0,80 Z" fill="white" />
+        </svg>
+      </div>
+
+      {/* Section 3: Our Values */}
+      <section className="bg-white py-16 sm:py-20 lg:py-24">
+        <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-10">
+          <h2
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1A1A2E] text-center mb-14"
+            style={{ fontFamily: "var(--font-serif)" }}
+          >
+            Our values
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-10">
+            {values.map((value, index) => (
+              <div key={index} className="border-t border-gray-300 pt-6">
+                <div className="flex items-center gap-3 mb-3">
+                  <span className="text-gray-700">{value.icon}</span>
+                  <h3 className="text-lg font-bold text-[#1A1A2E]">{value.title}</h3>
+                </div>
+                <p className="text-sm text-gray-600 leading-relaxed pl-9">
+                  {value.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Section 4: Our Leadership */}
+      <section className="bg-white py-16 sm:py-20 lg:py-24">
+        <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-10">
+          <h2
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1A1A2E] text-center mb-14"
+            style={{ fontFamily: "var(--font-serif)" }}
+          >
+            Our leadership
+          </h2>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8">
+            {[
+              { name: "Leadership Team", role: "Coming Soon" },
+              { name: "Leadership Team", role: "Coming Soon" },
+              { name: "Leadership Team", role: "Coming Soon" },
+              { name: "Leadership Team", role: "Coming Soon" },
+            ].map((member, index) => (
+              <div key={index} className="text-center">
+                <div className="w-24 h-28 bg-[#F3F4FA] rounded-xl mx-auto mb-4 flex items-center justify-center">
+                  <span className="text-gray-400 text-xs">[Photo]</span>
+                </div>
+                <h3 className="text-sm font-bold text-[#1A1A2E]">{member.name}</h3>
+                <p className="text-xs text-gray-500 mt-1">{member.role}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Section 5: Why Work With Us */}
+      <section className="bg-white py-16 sm:py-20 lg:py-24 border-t border-gray-200">
+        <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            {/* Left: Content */}
+            <div className="space-y-6">
+              <h2
+                className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1A1A2E] leading-tight"
+                style={{ fontFamily: "var(--font-serif)" }}
+              >
+                Why Work With Us
+              </h2>
+              <p className="text-gray-600 leading-relaxed text-lg">
+                Our teams integrate seamlessly into your operations. We learn your processes,
+                understand your customers, and represent your brand as if it were our own.
+              </p>
+              <p className="text-gray-600 leading-relaxed">
+                Whether you need customer support outsourcing, technical assistance, back-office
+                operations, or web development services, our team is ready to help.
+              </p>
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-3 bg-[#007b7b] hover:bg-[#00f4f4] hover:text-black text-white px-10 py-4 text-lg font-semibold rounded-full shadow-lg transition-all duration-300 hover:scale-105"
+              >
                 Get Started Today
-              </Button>
+                <span className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
+                  <IconArrowRight size={16} />
+                </span>
+              </Link>
+            </div>
+
+            {/* Right: Collage placeholder */}
+            <div className="grid grid-cols-2 gap-4">
+              <div className="bg-[#F3F4FA] rounded-xl aspect-square flex items-center justify-center">
+                <span className="text-gray-400 text-xs">[Photo]</span>
+              </div>
+              <div className="bg-[#F3F4FA] rounded-xl aspect-square flex items-center justify-center">
+                <span className="text-gray-400 text-xs">[Photo]</span>
+              </div>
+              <div className="bg-[#E8DDD4] rounded-xl aspect-square flex items-center justify-center">
+                <span className="text-gray-400 text-xs">[Photo]</span>
+              </div>
+              <div className="bg-[#F3F4FA] rounded-xl aspect-square flex items-center justify-center">
+                <span className="text-gray-400 text-xs">[Photo]</span>
+              </div>
             </div>
           </div>
         </div>
-      </Section>
+      </section>
     </>
   );
 }

@@ -1,6 +1,11 @@
 import { Badge } from "@/components/ui/Badge";
 import { ContactForm } from "@/components/shared/ContactForm";
 import { IconPhone, IconMail, IconMapPin } from "@tabler/icons-react";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Contact Us",
+};
 
 export default function ContactPage() {
   return (

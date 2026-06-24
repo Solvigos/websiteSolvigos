@@ -3,21 +3,42 @@ import Image from "next/image";
 import {
   IconHeadset,
   IconAntenna,
-  IconClipboardList,
   IconMessageChatbot,
   IconBuilding,
-  IconWorld,
 } from "@tabler/icons-react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Services",
+  title: "Customer Support & BPO Services",
+  description:
+    "Explore Solvigos outsourcing services: Customer Support, Technical Support, BPO & Back-Office, and CRM & AI Chatbot Setup. Scalable solutions for your business.",
+  openGraph: {
+    title: "Services | Solvigos",
+    description:
+      "Explore Solvigos outsourcing services: Customer Support, Technical Support, BPO, and CRM & AI Chatbot Setup.",
+    url: "https://solvigos.com/services",
+    images: [
+      {
+        url: "/og_image/servicespage.png",
+        width: 1200,
+        height: 630,
+        alt: "Solvigos Services",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Services | Solvigos",
+    description:
+      "Explore Solvigos outsourcing services: Customer Support, Technical Support, BPO, and CRM & AI Chatbot Setup.",
+    images: ["/og_image/servicespage.png"],
+  },
 };
 
 const services = [
   {
     icon: IconHeadset,
-    title: "Customer Experience",
+    title: "Customer Support",
     description: "Omnichannel support teams covering live chat, email, phone, and social media — trained on your brand voice.",
     href: "/services/customer-support",
   },
@@ -28,14 +49,8 @@ const services = [
     href: "/services/technical-support",
   },
   {
-    icon: IconClipboardList,
-    title: "Help Desk Management",
-    description: "Full platform management across Zendesk, Freshdesk, HubSpot and more — so your team can focus.",
-    href: "/services/help-desk-management",
-  },
-  {
     icon: IconMessageChatbot,
-    title: "CRM & Chatbot Setup",
+    title: "CRM & AI Chatbot Setup",
     description: "Setup, configure, and optimise your CRM stack and AI chatbots for better customer journeys.",
     href: "/services/crm-chatbot",
   },
@@ -44,12 +59,6 @@ const services = [
     title: "BPO & Back-Office",
     description: "Data entry, order processing, CRM management, and billing support — accurate and scalable operations.",
     href: "/services/bpo-back-office",
-  },
-  {
-    icon: IconWorld,
-    title: "Web Development",
-    description: "Fast, responsive, conversion-focused websites built to perform and grow with your brand.",
-    href: "/services/web-development",
   },
 ];
 
@@ -103,27 +112,19 @@ export default function ServicesPage() {
             </div>
           </div>
         </div>
-        {/* Curved Bottom */}
-        <div className="absolute bottom-0 left-0 right-0 z-0">
-          <svg
-            className="w-full"
-            viewBox="0 0 1440 80"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            preserveAspectRatio="none"
-            style={{ height: "60px", display: "block" }}
-          >
-            <path
-              d="M0,80 L0,40 Q720,0 1440,40 L1440,80 Z"
-              fill="white"
-            />
-          </svg>
-        </div>
       </section>
+
+      {/* Curved divider*/}
+      <div className="bg-[#F3F4FA]">
+        <svg viewBox="0 0 1440 80" preserveAspectRatio="none" className="w-full h-16 sm:h-20">
+          <path d="M0,80 L0,40 C360,80 720,0 1080,40 C1260,60 1380,70 1440,80 Z" fill="#F3F4FA" />
+          <path d="M0,80 C360,40 720,80 1080,40 C1260,20 1380,10 1440,0 L1440,80 Z" fill="white" />
+        </svg>
+      </div>
 
 
       {/* Top Categories Section */}
-      <section className="py-16 sm:py-20 bg-white">
+      <section className="py-10 sm:py-20 bg-white">
         <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-10">
           <h2
             className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1A2B5F] text-center mb-4"
@@ -133,37 +134,15 @@ export default function ServicesPage() {
           </h2>
           <div className="w-24 h-1 bg-yellow-400 mx-auto mb-12 rounded-full"></div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {/* Row 1 */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <Link href="/services/customer-support" className="flex items-center gap-3 px-5 py-4 rounded-full bg-[#f0f0ff] hover:bg-[#e5e5ff] transition-colors group">
               <IconHeadset size={20} className="text-purple-500" />
-              <span className="font-medium text-sm text-gray-700 group-hover:text-purple-600">Customer Experience</span>
+              <span className="font-medium text-sm text-gray-700 group-hover:text-purple-600">Customer Support</span>
             </Link>
 
-            <Link href="/services/customer-conversion" className="flex items-center gap-3 px-5 py-4 rounded-full bg-[#fff0f0] hover:bg-[#ffe5e5] transition-colors group">
-              <IconAntenna size={20} className="text-pink-500" />
-              <span className="font-medium text-sm text-gray-700 group-hover:text-pink-600">Customer Conversion</span>
-            </Link>
-
-            <Link href="/services/customer-onboarding" className="flex items-center gap-3 px-5 py-4 rounded-full bg-[#f0fff0] hover:bg-[#e5ffe5] transition-colors group">
-              <IconClipboardList size={20} className="text-emerald-500" />
-              <span className="font-medium text-sm text-gray-700 group-hover:text-emerald-600">Customer Onboarding</span>
-            </Link>
-
-            <Link href="/services/customer-support" className="flex items-center gap-3 px-5 py-4 rounded-full bg-[#fff8f0] hover:bg-[#ffeed9] transition-colors group">
-              <IconHeadset size={20} className="text-orange-500" />
-              <span className="font-medium text-sm text-gray-700 group-hover:text-orange-600">Customer Support</span>
-            </Link>
-
-            {/* Row 2 */}
             <Link href="/services/technical-support" className="flex items-center gap-3 px-5 py-4 rounded-full bg-[#f0f8ff] hover:bg-[#e5f3ff] transition-colors group">
               <IconAntenna size={20} className="text-blue-500" />
               <span className="font-medium text-sm text-gray-700 group-hover:text-blue-600">Technical Support</span>
-            </Link>
-
-            <Link href="/services/customer-renewals" className="flex items-center gap-3 px-5 py-4 rounded-full bg-[#f5f0ff] hover:bg-[#ede5ff] transition-colors group">
-              <IconClipboardList size={20} className="text-violet-500" />
-              <span className="font-medium text-sm text-gray-700 group-hover:text-violet-600">Customer Renewals</span>
             </Link>
 
             <Link href="/services/bpo-back-office" className="flex items-center gap-3 px-5 py-4 rounded-full bg-[#ffe8c5] hover:bg-[#ffd9a0] transition-colors group">
@@ -173,92 +152,19 @@ export default function ServicesPage() {
 
             <Link href="/services/crm-chatbot" className="flex items-center gap-3 px-5 py-4 rounded-full bg-[#fff0ff] hover:bg-[#ffe5ff] transition-colors group">
               <IconMessageChatbot size={20} className="text-fuchsia-500" />
-              <span className="font-medium text-sm text-gray-700 group-hover:text-fuchsia-600">CRM & Chatbot Setup</span>
-            </Link>
-          </div>
-
-          {/* Row 3 - Centered */}
-          <div className="flex justify-center gap-4 mt-4">
-            <Link href="/services/help-desk-management" className="flex items-center gap-3 px-5 py-4 rounded-full bg-[#f0ffff] hover:bg-[#e5ffff] transition-colors group">
-              <IconClipboardList size={20} className="text-teal-500" />
-              <span className="font-medium text-sm text-gray-700 group-hover:text-teal-600">Help Desk Management</span>
-            </Link>
-
-            <Link href="/services/web-development" className="flex items-center gap-3 px-5 py-4 rounded-full bg-[#f0fff5] hover:bg-[#e5ffed] transition-colors group">
-              <IconWorld size={20} className="text-green-500" />
-              <span className="font-medium text-sm text-gray-700 group-hover:text-green-600">Web Development</span>
+              <span className="font-medium text-sm text-gray-700 group-hover:text-fuchsia-600">CRM & AI Chatbot Setup</span>
             </Link>
           </div>
         </div>
       </section>
 
       {/* Service Detail Blocks */}
-      <section className="py-16 sm:py-20 bg-[#F3F4FA]">
+      <section className="py-10 sm:py-20 bg-[#F3F4FA]">
         <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-10 space-y-20">
 
-          {/* 1. Customer Experience */}
+          {/* 1. Customer Support */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-4">
-              <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider">Customer Experience</p>
-              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#1A2B5F] leading-tight" style={{ fontFamily: "var(--font-serif)" }}>
-                Every Interaction Shapes the Relationship.
-              </h3>
-              <p className="text-gray-600 leading-relaxed">
-                We help you design consistent, high-quality experiences across every touchpoint, building loyalty and trust with every customer interaction.
-              </p>
-              <Link href="/services/customer-support" className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-sm bg-[#004eb6] text-white hover:bg-black transition-colors">
-                Learn More <span>→</span>
-              </Link>
-            </div>
-            <div className="flex justify-center">
-              <Image src="/services/CustomerExperience.png" alt="Customer Experience" width={400} height={300} className="w-full max-w-md h-auto" />
-            </div>
-          </div>
-
-          {/* 2. Customer Conversion */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="flex justify-center order-2 lg:order-1">
-              <Image src="/services/CustomerConversion.png" alt="Customer Conversion" width={400} height={300} className="w-full max-w-md h-auto" />
-            </div>
-            <div className="space-y-4 order-1 lg:order-2">
-              <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider">Customer Conversion</p>
-              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#1A2B5F] leading-tight" style={{ fontFamily: "var(--font-serif)" }}>
-                Turn Conversations Into Customers.
-              </h3>
-              <p className="text-gray-600 leading-relaxed">
-                Our teams engage prospects with timely, persuasive communication that moves them through your funnel, increasing conversion rates without adding pressure to your sales team.
-              </p>
-              <Link href="/services/customer-conversion" className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-sm bg-[#004eb6] text-white hover:bg-black transition-colors">
-                Learn More <span>→</span>
-              </Link>
-            </div>
-          </div>
-
-          {/* 3. Customer Onboarding */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-4">
-              <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider">Customer Onboarding</p>
-              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#1A2B5F] leading-tight" style={{ fontFamily: "var(--font-serif)" }}>
-                First Impressions That Stick.
-              </h3>
-              <p className="text-gray-600 leading-relaxed">
-                We guide new customers through a smooth, confident start, reducing early churn and setting the stage for long-term satisfaction.
-              </p>
-              <Link href="/services/customer-onboarding" className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-sm bg-[#004eb6] text-white hover:bg-black transition-colors">
-                Learn More <span>→</span>
-              </Link>
-            </div>
-            <div className="flex justify-center">
-              <Image src="/services/CustomerOnboarding.png" alt="Customer Onboarding" width={400} height={300} className="w-full max-w-md h-auto" />
-            </div>
-          </div>
-
-          {/* 4. Customer Support */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="flex justify-center order-2 lg:order-1">
-              <Image src="/services/CustomerSupport.png" alt="Customer Support" width={400} height={300} className="w-full max-w-md h-auto" />
-            </div>
-            <div className="space-y-4 order-1 lg:order-2">
               <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider">Customer Support</p>
               <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#1A2B5F] leading-tight" style={{ fontFamily: "var(--font-serif)" }}>
                 Fast Responses. Friendly Service. Every Channel.
@@ -270,11 +176,17 @@ export default function ServicesPage() {
                 Learn More <span>→</span>
               </Link>
             </div>
+            <div className="flex justify-center">
+              <Image src="/services/CustomerSupport.png" alt="Customer Support" width={400} height={300} className="w-full max-w-md h-auto" />
+            </div>
           </div>
 
-          {/* 5. Technical Support */}
+          {/* 2. Technical Support */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-4">
+            <div className="flex justify-center order-2 lg:order-1">
+              <Image src="/services/TechnicalSupport.png" alt="Technical Support" width={400} height={300} className="w-full max-w-md h-auto" />
+            </div>
+            <div className="space-y-4 order-1 lg:order-2">
               <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider">Technical Support</p>
               <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#1A2B5F] leading-tight" style={{ fontFamily: "var(--font-serif)" }}>
                 Expertise That Keeps Customers Productive.
@@ -286,31 +198,9 @@ export default function ServicesPage() {
                 Learn More <span>→</span>
               </Link>
             </div>
-            <div className="flex justify-center">
-              <Image src="/services/TechnicalSupport.png" alt="Technical Support" width={400} height={300} className="w-full max-w-md h-auto" />
-            </div>
           </div>
 
-          {/* 6. Customer Renewals */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="flex justify-center order-2 lg:order-1">
-              <Image src="/services/CustomerRenewals.png" alt="Customer Renewals" width={400} height={300} className="w-full max-w-md h-auto" />
-            </div>
-            <div className="space-y-4 order-1 lg:order-2">
-              <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider">Customer Renewals</p>
-              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#1A2B5F] leading-tight" style={{ fontFamily: "var(--font-serif)" }}>
-                Keep Customers Coming Back.
-              </h3>
-              <p className="text-gray-600 leading-relaxed">
-                We proactively manage renewal conversations and retention outreach, protecting recurring revenue and strengthening long-term relationships.
-              </p>
-              <Link href="/services/customer-renewals" className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-sm bg-[#004eb6] text-white hover:bg-black transition-colors">
-                Learn More <span>→</span>
-              </Link>
-            </div>
-          </div>
-
-          {/* 7. BPO & Back-Office */}
+          {/* 3. BPO & Back-Office */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-4">
               <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider">BPO & Back-Office</p>
@@ -329,13 +219,13 @@ export default function ServicesPage() {
             </div>
           </div>
 
-          {/* 8. CRM & Chatbot Setup */}
+          {/* 4. CRM & AI Chatbot Setup */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="flex justify-center order-2 lg:order-1">
-              <Image src="/services/CRMChatbotSetup.png" alt="CRM & Chatbot Setup" width={400} height={300} className="w-full max-w-md h-auto" />
+              <Image src="/services/CRMChatbotSetup.png" alt="CRM & AI Chatbot Setup" width={400} height={300} className="w-full max-w-md h-auto" />
             </div>
             <div className="space-y-4 order-1 lg:order-2">
-              <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider">CRM & Chatbot Setup</p>
+              <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider">CRM & AI Chatbot Setup</p>
               <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#1A2B5F] leading-tight" style={{ fontFamily: "var(--font-serif)" }}>
                 Smarter Conversations Start With the Right Setup.
               </h3>
@@ -347,49 +237,19 @@ export default function ServicesPage() {
               </Link>
             </div>
           </div>
-
-          {/* 9. Help Desk Management */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-4">
-              <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider">Help Desk Management</p>
-              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#1A2B5F] leading-tight" style={{ fontFamily: "var(--font-serif)" }}>
-                Organized Support, Resolved Faster.
-              </h3>
-              <p className="text-gray-600 leading-relaxed">
-                We manage your help desk end-to-end ticket routing, prioritization, and resolution tracking so nothing falls through the cracks.
-              </p>
-              <Link href="/services/help-desk-management" className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-sm bg-[#004eb6] text-white hover:bg-black transition-colors">
-                Learn More <span>→</span>
-              </Link>
-            </div>
-            <div className="flex justify-center">
-              <Image src="/services/HelpDeskManagement.png" alt="Help Desk Management" width={400} height={300} className="w-full max-w-md h-auto" />
-            </div>
-          </div>
-
-          {/* 10. Web Development */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="flex justify-center order-2 lg:order-1">
-              <Image src="/services/WebDevelopment.png" alt="Web Development" width={400} height={300} className="w-full max-w-md h-auto" />
-            </div>
-            <div className="space-y-4 order-1 lg:order-2">
-              <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider">Web Development</p>
-              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#1A2B5F] leading-tight" style={{ fontFamily: "var(--font-serif)" }}>
-                Websites Built for Growth and Performance.
-              </h3>
-              <p className="text-gray-600 leading-relaxed">
-                We build fast, responsive, conversion-focused sites from WordPress builds to full eCommerce platforms.
-              </p>
-              <Link href="/services/web-development" className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-sm bg-[#004eb6] text-white hover:bg-black transition-colors">
-                Learn More <span>→</span>
-              </Link>
-            </div>
-          </div>
         </div>
       </section>
 
+      {/* Curved divider*/}
+      <div className="bg-[#F3F4FA]">
+        <svg viewBox="0 0 1440 80" preserveAspectRatio="none" className="w-full h-16 sm:h-20">
+          <path d="M0,80 L0,40 C360,80 720,0 1080,40 C1260,60 1380,70 1440,80 Z" fill="#F3F4FA" />
+          <path d="M0,80 C360,40 720,80 1080,40 C1260,20 1380,10 1440,0 L1440,80 Z" fill="white" />
+        </svg>
+      </div>
+
       {/* CTA */}
-      <section className="py-16 sm:py-20 bg-white">
+      <section className="py-10 sm:py-20 bg-white">
         <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-10 text-center">
           <h2
             className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1A2B5F] leading-tight mb-6"

@@ -7,19 +7,11 @@ import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   IconMenu2,
-  IconUser,
   IconHeadset,
+  IconAntenna,
   IconChevronRight,
-  IconBuildingStore,
-  IconCloud,
-  IconCpu,
-  IconHeart,
-  IconSchool,
-  IconPlane,
   IconBuilding,
   IconRobot,
-  IconHelp,
-  IconWorld,
 } from "@tabler/icons-react";
 import { MobileMenu } from "./MobileMenu";
 
@@ -42,55 +34,26 @@ const navLinks: NavLink[] = [
     href: "/services",
     dropdown: [
       {
-        heading: "Customer Experience",
-        href: "/services/customer-support",
-        icon: <IconUser size={20} />,
         items: [
-          { label: "Customer Conversion", href: "/services/customer-conversion" },
-          { label: "Customer Onboarding", href: "/services/customer-onboarding" },
-          { label: "Customer Support", href: "/services/customer-support" },
-          { label: "Technical Customer Support", href: "/services/technical-support" },
-          { label: "Customer Renewals", href: "/services/customer-renewals" },
+          { label: "Customer Support", href: "/services/customer-support", icon: <IconHeadset size={18} /> },
+          { label: "Technical Customer Support", href: "/services/technical-support", icon: <IconAntenna size={18} /> },
         ],
       },
       {
         items: [
           { label: "BPO & Back-Office", href: "/services/bpo-back-office", icon: <IconBuilding size={18} /> },
-          { label: "CRM & Chatbot Setup", href: "/services/crm-chatbot", icon: <IconRobot size={18} /> },
-          { label: "Help Desk Management", href: "/services/help-desk-management", icon: <IconHelp size={18} /> },
-          { label: "Web Development", href: "/services/web-development", icon: <IconWorld size={18} /> },
+          { label: "CRM & AI Chatbot Setup", href: "/services/crm-chatbot", icon: <IconRobot size={18} /> },
         ],
       },
     ],
   },
   {
-    label: "Industries",
-    href: "/industries",
-    dropdown: [
-      {
-        items: [
-          { label: "eCommerce", href: "/industries/ecommerce", description: "From Cart to Customer Loyalty", icon: <IconBuildingStore size={18} /> },
-          { label: "SaaS", href: "/industries/saas", description: "Support That Matches Your Product's Pace", icon: <IconCloud size={18} /> },
-          { label: "Technology", href: "/industries/technology", description: "Specialized Support for Complex Products", icon: <IconCpu size={18} /> },
-          { label: "Healthcare", href: "/industries/healthcare", description: "Reliable Support With the Sensitivity It Demands", icon: <IconHeart size={18} /> },
-          { label: "Education", href: "/industries/education", description: "Supporting Students From Enrollment to Completion", icon: <IconSchool size={18} /> },
-          { label: "Travel & Hospitality", href: "/industries/travel-hospitality", description: "Every Interaction Is Part of the Experience", icon: <IconPlane size={18} /> },
-        ],
-      },
-    ],
+    label: "Pricing",
+    href: "/pricing",
   },
   {
-    label: "How it Works",
-    href: "/how-it-works",
-    dropdown: [
-      {
-        items: [
-          { label: "How it Works", href: "/how-it-works" },
-          { label: "Pricing", href: "/pricing" },
-          { label: "About Us", href: "/about" },
-        ],
-      },
-    ],
+    label: "About Us",
+    href: "/about",
   },
   {
     label: "Resources",
@@ -148,12 +111,12 @@ export function Navbar() {
                       </span>
                       <IconChevronRight size={14} className="text-gray-400 ml-auto group-hover:text-[#007b7b] transition-colors" />
                     </Link>
-                  ) : (
+                  ) : section.heading ? (
                     <div className="flex items-center gap-2.5 mb-4">
                       <span className="text-gray-700">{section.icon}</span>
                       <span className="text-sm font-bold text-gray-900">{section.heading}</span>
                     </div>
-                  )}
+                  ) : null}
                   {hasHeadingItems ? (
                     <div className="space-y-1">
                       {section.items.map((item) => (
@@ -190,42 +153,7 @@ export function Navbar() {
       );
     }
 
-    // Industries dropdown - wide layout with descriptions
-    if (link.label === "Industries") {
-      return (
-        <motion.div
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: 8 }}
-          transition={{ duration: 0.15 }}
-          className="absolute top-full left-0 mt-1 bg-white rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.12)] border border-gray-100 p-6 min-w-[600px]"
-        >
-          <div className="grid grid-cols-2 gap-x-8 gap-y-1">
-            {link.dropdown[0].items.map((item) => (
-              <Link
-                key={item.label}
-                href={item.href}
-                className="flex items-start gap-3 px-3 py-3 rounded-xl hover:bg-gray-50 transition-colors group"
-              >
-                <span className="text-[#4F46E5] mt-0.5 flex-shrink-0">{item.icon}</span>
-                <div className="min-w-0">
-                  <span className="text-sm font-semibold text-gray-900 group-hover:text-[#4F46E5] transition-colors block">
-                    {item.label}
-                  </span>
-                  {item.description && (
-                    <span className="text-xs text-gray-500 leading-relaxed block mt-0.5">
-                      {item.description}
-                    </span>
-                  )}
-                </div>
-              </Link>
-            ))}
-          </div>
-        </motion.div>
-      );
-    }
-
-    // Simple dropdowns (How it Works, Resources)
+    // Simple dropdowns (Resources)
     const items = link.dropdown[0]?.items;
     if (!items) return null;
 
@@ -268,10 +196,10 @@ export function Navbar() {
             }`}>
               <Link href="/" className="flex items-center gap-0">
                 <Image src="/logo1.png" alt="Solvigos" width={110} height={110} className={`object-contain transition-all duration-300 ${
-                  scrolled ? "w-5 h-5 sm:w-10 sm:h-10 lg:w-15 lg:h-15" : "w-9 h-9 sm:w-12 sm:h-12 lg:w-23 lg:h-23"
+                  scrolled ? "w-5 h-5 sm:w-10 sm:h-10 lg:w-15 lg:h-15" : "w-14 h-14 sm:w-12 sm:h-12 lg:w-23 lg:h-23"
                 }`} style={{ filter: isHomePage && !scrolled ? "brightness(0) invert(1)" : "none" }} />
                 <span className={`font-bold tracking-tight transition-all duration-300 ${
-                  scrolled ? "text-[10px] sm:text-xs lg:text-lg" : "text-xs sm:text-sm lg:text-2xl"
+                  scrolled ? "text-[10px] sm:text-xs lg:text-lg" : "text-base sm:text-sm lg:text-2xl"
                 } ${isHomePage && !scrolled ? "text-white" : "text-navy"}`}>Solvigos</span>
               </Link>
 

@@ -2,23 +2,11 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState, useRef } from "react";
+import { useState, type ReactNode } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  IconCheck,
   IconArrowRight,
   IconChevronDown,
-  IconChevronLeft,
-  IconChevronRight,
-  IconHeadset,
-  IconDeviceLaptop,
-  IconUserPlus,
-  IconBuilding,
-  IconMessageChatbot,
-  IconTicket,
-  IconTrendingUp,
-  IconRefresh,
-  IconWorld,
 } from "@tabler/icons-react";
 
 type Feature = {
@@ -48,6 +36,19 @@ type ServicePageProps = {
   ctaTitle?: string;
   ctaDescription?: string;
   currentService: string;
+  strikeHeadline?: string;
+  strikeWord?: string;
+  strikeReplacement?: string;
+  strikeSubheadline?: string;
+  ctaImages?: string[];
+  stillHaveQuestionsText?: string;
+  outsourcedBlocks?: {
+    heading?: ReactNode;
+    blocks: {
+      title: string;
+      descriptions: string[];
+    }[];
+  };
 };
 
 const defaultFaqItems: FaqItem[] = [
@@ -65,6 +66,13 @@ const defaultFaqItems: FaqItem[] = [
   },
 ];
 
+const serviceImageMap: Record<string, string> = {
+  "customer-support": "customerSupport",
+  "technical-support": "technicalSupport",
+  "bpo-back-office": "bpoBackoffice",
+  "crm-chatbot": "crmChatbot",
+};
+
 export function ServiceLayout({
   title,
   subtitle = "Services",
@@ -76,20 +84,21 @@ export function ServiceLayout({
   ctaTitle = "Start Building Your Dream Team",
   ctaDescription = "Design a custom outsourcing solution that enables you to scale. We've got you covered.",
   currentService,
+  strikeHeadline,
+  strikeWord,
+  strikeReplacement,
+  strikeSubheadline,
+  ctaImages = [],
+  stillHaveQuestionsText = "We're here to answer any questions you may have about outsourcing your customer experience. Whether you're looking to outsource a specific phase of the journey or the entire lifecycle, our team is ready to support your business goals.",
+  outsourcedBlocks,
 }: ServicePageProps) {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
-  const scrollRef = useRef<HTMLDivElement>(null);
 
   const allServices = [
     { label: "Customer Support", href: "/services/customer-support", image: "/moreSolutions/customerSupport.png" },
-    { label: "Customer Conversion", href: "/services/customer-conversion", image: "/moreSolutions/customerConversion.png" },
-    { label: "Customer Onboarding", href: "/services/customer-onboarding", image: "/moreSolutions/customerOnboarding.png" },
     { label: "Technical Support", href: "/services/technical-support", image: "/moreSolutions/technicalSupport.png" },
-    { label: "Customer Renewals", href: "/services/customer-renewals", image: "/moreSolutions/customerRenewals.png" },
     { label: "BPO & Back-Office", href: "/services/bpo-back-office", image: "/moreSolutions/bpoBackoffice.png" },
-    { label: "CRM & Chatbot Setup", href: "/services/crm-chatbot", image: "/moreSolutions/crmChatotSetup.png" },
-    { label: "Help Desk Management", href: "/services/help-desk-management", image: "/moreSolutions/helpdeskManagement.png" },
-    { label: "Web Development", href: "/services/web-development", image: "/moreSolutions/webDevelopment.png" },
+    { label: "CRM & AI Chatbot Setup", href: "/services/crm-chatbot", image: "/moreSolutions/crmChatotSetup.png" },
   ];
 
   const moreSolutions = currentService
@@ -99,32 +108,17 @@ export function ServiceLayout({
   const serviceBlogMap: Record<string, { slug: string; title: string; image: string; readTime: string }> = {
     "customer-support": { slug: "customers-decide-in-first-seven-days", title: "Why Customers Decide in the First Seven Days", image: "/blog/blog1.png", readTime: "4 min read" },
     "technical-support": { slug: "why-turning-it-off-not-technical-support", title: "Why Turning It Off Is Not Technical Support", image: "/blog/blog2.png", readTime: "4 min read" },
-    "customer-conversion": { slug: "cart-abandonment-not-just-cart", title: "Cart Abandonment Is Not Just About the Cart", image: "/blog/blog3.png", readTime: "4 min read" },
-    "customer-onboarding": { slug: "enrollment-is-easy-part-completion-hard", title: "Enrollment Is Easy, Part-Completion Is Hard", image: "/blog/blog4.png", readTime: "4 min read" },
-    "customer-renewals": { slug: "renewals-not-won-at-renewal-time", title: "Renewals Are Not Won at Renewal Time", image: "/blog/blog5.png", readTime: "4 min read" },
     "bpo-back-office": { slug: "admin-work-quietly-slowing-growth", title: "The Admin Work Nobody Sees Is Quietly Slowing Your Growth", image: "/blog/blog6.png", readTime: "4 min read" },
     "crm-chatbot": { slug: "crm-only-as-smart-as-setup", title: "Your CRM Is Only as Smart as Its Setup", image: "/blog/blog7.png", readTime: "4 min read" },
-    "help-desk-management": { slug: "hold-music-not-strategy", title: "Hold Music Is Not a Strategy", image: "/blog/blog8.png", readTime: "4 min read" },
-    "web-development": { slug: "website-your-hardest-working-employee", title: "Your Website Is Your Hardest-Working Employee", image: "/blog/blog9.png", readTime: "4 min read" },
   };
 
   const featuredBlog = currentService ? serviceBlogMap[currentService] : null;
-
-  const scrollMoreSolutions = (direction: "left" | "right") => {
-    if (scrollRef.current) {
-      const scrollAmount = 300;
-      scrollRef.current.scrollBy({
-        left: direction === "left" ? -scrollAmount : scrollAmount,
-        behavior: "smooth",
-      });
-    }
-  };
 
   return (
     <>
       {/* Section 1: Hero */}
       <section className="relative bg-[#F3F4FA] overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 py-24 sm:py-32 lg:py-40">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 py-16 sm:py-32 lg:py-40">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Left: Content */}
             <div className="space-y-6">
@@ -149,8 +143,8 @@ export function ServiceLayout({
             </div>
 
             {/* Right: Illustration */}
-            <div className="flex justify-center lg:justify-end">
-              <div className="relative w-72 h-72 sm:w-96 sm:h-96">
+            <div className="flex justify-center lg:justify-center lg:-ml-8">
+              <div className="relative w-80 h-80 sm:w-[500px] sm:h-[500px]">
                 <Image
                   src={heroImage}
                   alt={title}
@@ -163,27 +157,25 @@ export function ServiceLayout({
             </div>
           </div>
         </div>
-
-        {/* Curved bottom divider */}
-        <div className="absolute bottom-0 left-0 right-0">
-          <svg viewBox="0 0 1440 80" preserveAspectRatio="none" className="w-full h-16 sm:h-20">
-            <path d="M0,80 L0,40 C360,80 720,0 1080,40 C1260,60 1380,70 1440,80 Z" fill="#F3F4FA" />
-            <path d="M0,80 C360,40 720,80 1080,40 C1260,20 1380,10 1440,0 L1440,80 Z" fill="white" />
-          </svg>
-        </div>
       </section>
 
       {/* Section 2: Outsourced Solutions - Alternating Content */}
-      <section className="bg-white py-16 sm:py-20 lg:py-24">
+      <section className="bg-[#F3F4FA] py-10 sm:py-20 lg:py-24">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
           <div className="text-center mb-16">
             <h2
               className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1A1A2E] leading-tight"
               style={{ fontFamily: "var(--font-serif)" }}
             >
-              Outsourced Solutions for Every Stage
-              <br />
-              of the Customer Journey
+            {outsourcedBlocks?.heading ? (
+              outsourcedBlocks.heading
+            ) : (
+              <>
+                Outsourced Solutions for Every Stage
+                <br />
+                of the Customer Journey
+              </>
+            )}
             </h2>
           </div>
 
@@ -191,24 +183,28 @@ export function ServiceLayout({
           <div className="space-y-20">
             {/* Block 1: Image left, text right */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div className="bg-[#E8DDD4] rounded-2xl aspect-[4/3] flex items-center justify-center">
-                <span className="text-gray-500 text-sm">[GIF / Image placeholder]</span>
+              <div className="relative rounded-2xl aspect-[4/3] overflow-hidden">
+                <Image
+                  src={`/servicepages/${serviceImageMap[currentService] || "image"}1.png`}
+                  alt="Service block 1"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
               </div>
               <div className="space-y-5">
                 <h3
                   className="text-2xl sm:text-3xl font-bold text-[#1A1A2E]"
                   style={{ fontFamily: "var(--font-serif)" }}
                 >
-                  Delivering Value at Every Stage
+                  {outsourcedBlocks ? outsourcedBlocks.blocks[0].title : "Delivering Value at Every Stage"}
                 </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  With our expertise in customer experience outsourcing, we ensure
-                  that your business maintains the high-quality CX your customers expect.
-                </p>
-                <p className="text-gray-600 leading-relaxed">
-                  We deliver value at every stage of the customer lifecycle, helping your
-                  company build strong, lasting customer relationships.
-                </p>
+                {(outsourcedBlocks ? outsourcedBlocks.blocks[0].descriptions : [
+                  "With our expertise in customer experience outsourcing, we ensure that your business maintains the high-quality CX your customers expect.",
+                  "We deliver value at every stage of the customer lifecycle, helping your company build strong, lasting customer relationships.",
+                ]).map((desc, i) => (
+                  <p key={i} className="text-gray-600 leading-relaxed">{desc}</p>
+                ))}
               </div>
             </div>
 
@@ -219,65 +215,82 @@ export function ServiceLayout({
                   className="text-2xl sm:text-3xl font-bold text-[#1A1A2E]"
                   style={{ fontFamily: "var(--font-serif)" }}
                 >
-                  Comprehensive Support, Anytime, Anywhere
+                  {outsourcedBlocks ? outsourcedBlocks.blocks[1].title : "Comprehensive Support, Anytime, Anywhere"}
                 </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  Our 24/7 multichannel support spans email, chat, phone, in-app,
-                  social platforms, and beyond — ensuring your customers receive
-                  prompt assistance wherever they are.
-                </p>
-                <p className="text-gray-600 leading-relaxed">
-                  We proactively monitor engagement, uncovering key insights that drive
-                  continuous improvement, all while keeping your customer journey
-                  frictionless.
-                </p>
-                <p className="text-gray-600 leading-relaxed">
-                  This flexible, always-on approach allows your business to scale
-                  efficiently while delivering exceptional, consistent CX at every
-                  touchpoint.
-                </p>
+                {(outsourcedBlocks ? outsourcedBlocks.blocks[1].descriptions : [
+                  "Our 24/7 multichannel support spans email, chat, phone, in-app, social platforms, and beyond — ensuring your customers receive prompt assistance wherever they are.",
+                  "We proactively monitor engagement, uncovering key insights that drive continuous improvement, all while keeping your customer journey frictionless.",
+                  "This flexible, always-on approach allows your business to scale efficiently while delivering exceptional, consistent CX at every touchpoint.",
+                ]).map((desc, i) => (
+                  <p key={i} className="text-gray-600 leading-relaxed">{desc}</p>
+                ))}
               </div>
-              <div className="order-1 lg:order-2 bg-[#E8DDD4] rounded-2xl aspect-[4/3] flex items-center justify-center">
-                <span className="text-gray-500 text-sm">[GIF / Image placeholder]</span>
+              <div className="order-1 lg:order-2 relative rounded-2xl aspect-[4/3] overflow-hidden">
+                <Image
+                  src={`/servicepages/${serviceImageMap[currentService] || "image"}2.png`}
+                  alt="Service block 2"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Curved divider: Testimonials → CTA */}
-      <div className="bg-white">
+      {/* Curved divider: Why Partner with Us*/}
+      <div className="bg-[#F3F4FA]">
         <svg viewBox="0 0 1440 80" preserveAspectRatio="none" className="w-full h-16 sm:h-20">
-          <path d="M0,80 L0,40 C360,80 720,0 1080,40 C1260,60 1380,70 1440,80 Z" fill="white" />
-          <path d="M0,80 C360,40 720,80 1080,40 C1260,20 1380,10 1440,0 L1440,80 Z" fill="#F3F4FA" />
+          <path d="M0,80 L0,40 C360,80 720,0 1080,40 C1260,60 1380,70 1440,80 Z" fill="#F3F4FA" />
+          <path d="M0,80 C360,40 720,80 1080,40 C1260,20 1380,10 1440,0 L1440,80 Z" fill="white" />
         </svg>
       </div>
 
       {/* Section 3: Why Partner with Us */}
-      <section className="bg-[#F3F4FA] py-16 sm:py-20 lg:py-24">
+      <section className="bg-[#FFFFFF] py-10 sm:py-20 lg:py-24">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
-          {/* Header */}
+          {/* Strikethrough Headline */}
+          {strikeHeadline && strikeWord && strikeReplacement && (
+            <div className="text-center mb-6">
+              <h2
+                className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1A1A2E] leading-tight"
+                style={{ fontFamily: "var(--font-serif)" }}
+              >
+                {strikeHeadline}{" "}
+                <span className="relative inline-block">
+                  <span className="text-gray-400 line-through decoration-2 decoration-gray-400">
+                    {strikeWord}
+                  </span>
+                </span>{" "}
+                <span className="text-[#1A1A2E]">{strikeReplacement}</span>
+              </h2>
+            </div>
+          )}
+
+          {/* Subheadline */}
+          {strikeSubheadline && (
+            <div className="text-center mb-8">
+              <p className="text-gray-600 max-w-3xl mx-auto text-sm sm:text-base leading-relaxed">
+                {strikeSubheadline}
+              </p>
+            </div>
+          )}
+
+          {/* CTA Button */}
           <div className="text-center mb-14">
-            <h2
-              className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1A1A2E] leading-tight uppercase"
-              style={{ fontFamily: "var(--font-serif)" }}
-            >
-              Why Partner with Us
-            </h2>
-            <p className="text-gray-600 mt-4 max-w-2xl mx-auto text-sm sm:text-base leading-relaxed">
-              We don&apos;t just provide support — we become an extension of your team.
-              Dedicated specialists, proven processes, and the flexibility to scale
-              with your business.
-            </p>
             <Link
               href="/contact"
-              className="inline-block mt-6 bg-[#1A1A2E] hover:bg-[#2a3a5a] text-white px-8 py-3 rounded-full font-semibold text-sm transition-all duration-300"
+              className="inline-flex items-center gap-3 bg-[#007b7b] hover:bg-[#00f4f4] hover:text-black text-white px-10 py-4 text-lg font-semibold rounded-full shadow-lg transition-all duration-300 hover:scale-105"
             >
               Get Started
+              <span className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
+                <IconArrowRight size={16} />
+              </span>
             </Link>
           </div>
 
-          {/* Arched Cards */}
+          {/* Arched Cards - text on top, image below */}
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {(keyFeatures.length > 0
               ? keyFeatures.slice(0, 4)
@@ -304,26 +317,26 @@ export function ServiceLayout({
               return (
                 <div
                   key={index}
-                  className={`${color.bg} rounded-t-full rounded-b-2xl overflow-hidden flex flex-col items-center`}
+                  className={`${color.bg} rounded-t-full rounded-b-2xl flex flex-col items-center min-h-[380px] sm:min-h-[440px]`}
                 >
-                  {/* Image Area */}
-                  <div className="w-full aspect-[3/4] relative overflow-hidden">
+                  {/* Text Area (on top) */}
+                  <div className="px-4 pt-16 sm:pt-20 pb-4 text-center">
+                    <h3 className="text-base font-bold text-[#1A1A2E] mb-3 leading-snug">
+                      {feature.title}
+                    </h3>
+                    <p className="text-sm text-gray-700 leading-relaxed">
+                      {feature.description}
+                    </p>
+                  </div>
+                  {/* Image Area - pushed to bottom */}
+                  <div className="w-full h-36 sm:h-40 relative mt-auto">
                     <Image
                       src={images[index]}
                       alt={feature.title}
                       fill
-                      className="object-cover"
+                      className="object-contain rounded-b-2xl"
                       sizes="(max-width: 768px) 50vw, 25vw"
                     />
-                  </div>
-                  {/* Text Area */}
-                  <div className="px-4 pb-6 pt-4 text-center">
-                    <h3 className="text-sm font-bold text-[#1A1A2E] mb-1 leading-snug">
-                      {feature.title}
-                    </h3>
-                    <p className="text-xs text-gray-700 leading-relaxed">
-                      {feature.description}
-                    </p>
                   </div>
                 </div>
               );
@@ -332,16 +345,9 @@ export function ServiceLayout({
         </div>
       </section>
 
-      {/* Curved divider: Why Partner with Us → Testimonials */}
-      <div className="bg-[#F3F4FA]">
-        <svg viewBox="0 0 1440 80" preserveAspectRatio="none" className="w-full h-16 sm:h-20">
-          <path d="M0,80 L0,40 C360,80 720,0 1080,40 C1260,60 1380,70 1440,80 Z" fill="#F3F4FA" />
-          <path d="M0,80 C360,40 720,80 1080,40 C1260,20 1380,10 1440,0 L1440,80 Z" fill="white" />
-        </svg>
-      </div>
 
       {/* Testimonials Section */}
-      <section className="bg-white py-16 sm:py-20 lg:py-24 overflow-hidden">
+      <section className="bg-white py-10 sm:py-20 lg:py-24 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
           {/* Header */}
           <div className="text-center mb-14">
@@ -359,24 +365,28 @@ export function ServiceLayout({
               {
                 text: "We've worked with many vendors over the years, and Solvigos stands out for their ability to adapt to our needs quickly. Their team became a genuine extension of ours from day one. The quality of support has been consistently high.",
                 name: "Valerie Wall",
+                role: "VP of Customer Experience",
                 rotate: "-rotate-3",
                 translate: "translate-y-4",
               },
               {
                 text: "We needed to scale our support operation fast without sacrificing quality. Solvigos delivered on both fronts. Their team integrated with our processes seamlessly and the results spoke for themselves. Response times improved, CSAT went up, and we finally felt like our customers were in good hands.",
                 name: "Dennis Miller",
+                role: "Director of Operations",
                 rotate: "rotate-2",
                 translate: "-translate-y-2",
               },
               {
                 text: "Thanks for helping us launch our customer support function. Professional, responsive, and detail-oriented at every stage. A few rough patches early on, but we got there in the end. I would certainly consider working with them again.",
                 name: "Mary",
+                role: "Head of Customer Support",
                 rotate: "-rotate-1",
                 translate: "translate-y-2",
               },
               {
                 text: "Solvigos helped us get our CRM and support desk running smoothly. They were patient with our questions and quick to resolve any issues. Their team took the time to understand our workflows and configured everything to match how we actually work.",
                 name: "A.H.",
+                role: "Senior CRM Manager",
                 rotate: "rotate-3",
                 translate: "-translate-y-4",
               },
@@ -391,13 +401,14 @@ export function ServiceLayout({
                 <span className="text-xs font-semibold text-[#1A1A2E]">
                   {t.name}
                 </span>
+                <p className="text-xs text-gray-500 mt-0.5">{t.role}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Curved divider: Testimonials → CTA */}
+      {/* Curved divider: Start Building Your Dream Team */}
       <div className="bg-white">
         <svg viewBox="0 0 1440 80" preserveAspectRatio="none" className="w-full h-16 sm:h-20">
           <path d="M0,80 L0,40 C360,80 720,0 1080,40 C1260,60 1380,70 1440,80 Z" fill="white" />
@@ -406,26 +417,36 @@ export function ServiceLayout({
       </div>
 
       {/* Section 6: CTA - Start Building Your Dream Team */}
-      <section className="bg-[#F3F4FA] py-16 sm:py-20 lg:py-24">
+      <section className="bg-[#F3F4FA] py-10 sm:py-20 lg:py-24">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            {/* Left: Team Collage Placeholder */}
+            {/* Left: Team Images */}
             <div className="grid grid-cols-3 gap-4">
-              <div className="col-span-2 bg-[#F3F4FA] rounded-xl aspect-square flex items-center justify-center">
-                <span className="text-gray-400 text-xs">[Team photo]</span>
-              </div>
-              <div className="bg-[#E8DDD4] rounded-xl aspect-square flex items-center justify-center">
-                <span className="text-gray-400 text-xs">[Photo]</span>
-              </div>
-              <div className="bg-[#D4B896] rounded-xl aspect-square flex items-center justify-center">
-                <span className="text-gray-400 text-xs">[Icon]</span>
-              </div>
-              <div className="bg-[#F3F4FA] rounded-xl aspect-square flex items-center justify-center">
-                <span className="text-gray-400 text-xs">[Photo]</span>
-              </div>
-              <div className="col-span-2 bg-[#E8DDD4] rounded-xl aspect-[2/1] flex items-center justify-center">
-                <span className="text-gray-400 text-xs">[Team photo]</span>
-              </div>
+              {[0, 1, 2, 3].map((i) => {
+                const positions = [
+                  "col-span-2 aspect-square",
+                  "aspect-square",
+                  "aspect-square",
+                  "col-span-2 aspect-[2/1]",
+                ];
+                return (
+                  <div key={i} className={`${positions[i]} rounded-xl relative overflow-hidden`}>
+                    {ctaImages[i] ? (
+                      <Image
+                        src={ctaImages[i]}
+                        alt={`Team ${i + 1}`}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 50vw, 33vw"
+                      />
+                    ) : (
+                      <div className="w-full h-full bg-[#E8DDD4] flex items-center justify-center">
+                        <span className="text-gray-400 text-xs">[Team photo]</span>
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
             </div>
 
             {/* Right: Content */}
@@ -453,16 +474,9 @@ export function ServiceLayout({
         </div>
       </section>
 
-      {/* Curved divider: CTA → Still Have Questions */}
-      <div className="bg-[#F3F4FA]">
-        <svg viewBox="0 0 1440 80" preserveAspectRatio="none" className="w-full h-16 sm:h-20">
-          <path d="M0,80 L0,40 C360,80 720,0 1080,40 C1260,60 1380,70 1440,80 Z" fill="#F3F4FA" />
-          <path d="M0,80 C360,40 720,80 1080,40 C1260,20 1380,10 1440,0 L1440,80 Z" fill="white" />
-        </svg>
-      </div>
 
       {/* Still Have Questions */}
-      <section className="bg-white py-16 sm:py-20 lg:py-24">
+      <section className="bg-[#F3F4FA] py-10 sm:py-20 lg:py-24">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
             {/* Left: Content + FAQs */}
@@ -474,10 +488,7 @@ export function ServiceLayout({
                 Still Have Questions?
               </h2>
               <p className="text-gray-600 leading-relaxed mb-8 max-w-lg">
-                We&apos;re here to answer any questions you may have about outsourcing your
-                customer experience. Whether you&apos;re looking to outsource a specific
-                phase of the journey or the entire lifecycle, our team is ready to
-                support your business goals.
+                {stillHaveQuestionsText}
               </p>
 
               {/* FAQ Accordions */}
@@ -558,17 +569,16 @@ export function ServiceLayout({
         </div>
       </section>
 
-      {/* Curved divider: Still Have Questions → More Solutions */}
-      <div className="bg-white">
+      {/* Curved divider: More Solutions */}
+      <div className="bg-[#F3F4FA]">
         <svg viewBox="0 0 1440 80" preserveAspectRatio="none" className="w-full h-16 sm:h-20">
-          <path d="M0,80 L0,40 C360,80 720,0 1080,40 C1260,60 1380,70 1440,80 Z" fill="white" />
-          <path d="M0,80 C360,40 720,80 1080,40 C1260,20 1380,10 1440,0 L1440,80 Z" fill="#F3F4FA" />
+          <path d="M0,80 L0,40 C360,80 720,0 1080,40 C1260,60 1380,70 1440,80 Z" fill="#F3F4FA" />
+          <path d="M0,80 C360,40 720,80 1080,40 C1260,20 1380,10 1440,0 L1440,80 Z" fill="white" />
         </svg>
       </div>
 
-      {/* More Solutions*/}
       {/* More Solutions */}
-      <section className="bg-[#F3F4FA] py-16 sm:py-20 lg:py-24 overflow-hidden">
+      <section className="bg-[#FFFFFF] py-10 sm:py-20 lg:py-24">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
           <h2
             className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1A1A2E] text-center mb-14"
@@ -577,16 +587,13 @@ export function ServiceLayout({
             More Solutions
           </h2>
 
-          {/* Scrollable cards */}
-          <div
-            ref={scrollRef}
-            className="flex gap-5 overflow-x-auto pb-6 scrollbar-hide snap-x snap-mandatory"
-          >
+          {/* Centered cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-4xl mx-auto">
             {moreSolutions.map((service, index) => (
               <Link
                 key={index}
                 href={service.href}
-                className="flex-shrink-0 w-52 bg-[#e7edf7] rounded-2xl p-5 snap-start group hover:shadow-lg transition-all duration-300"
+                className="bg-[#e7edf7] rounded-2xl p-5 group hover:shadow-lg transition-all duration-300"
               >
                 <div className="w-full aspect-square rounded-xl relative overflow-hidden mb-4">
                   <Image
@@ -594,7 +601,7 @@ export function ServiceLayout({
                     alt={service.label}
                     fill
                     className="object-contain"
-                    sizes="208px"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
                 </div>
                 <div className="flex items-center justify-between">
@@ -605,27 +612,6 @@ export function ServiceLayout({
                 </div>
               </Link>
             ))}
-          </div>
-
-          {/* Navigation arrows + divider */}
-          <div className="mt-8">
-            <div className="h-px bg-gray-300 mb-6" />
-            <div className="flex justify-end">
-              <div className="flex gap-2">
-                <button
-                  onClick={() => scrollMoreSolutions("left")}
-                  className="w-10 h-10 rounded-full bg-[#1A3D2E] hover:bg-[#2a5a42] text-white flex items-center justify-center transition-colors"
-                >
-                  <IconChevronLeft size={18} />
-                </button>
-                <button
-                  onClick={() => scrollMoreSolutions("right")}
-                  className="w-10 h-10 rounded-full bg-[#1A3D2E] hover:bg-[#2a5a42] text-white flex items-center justify-center transition-colors"
-                >
-                  <IconChevronRight size={18} />
-                </button>
-              </div>
-            </div>
           </div>
         </div>
       </section>

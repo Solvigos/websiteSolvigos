@@ -7,7 +7,7 @@ const steps = [
     num: "Step 1",
     title: "Discover & Align",
     description:
-      "We go deep on your business — your customers, your tone, your pain points, and your goals. Together, we build a service blueprint that maps every detail, from response standards to escalation rules, ensuring our teams represent your brand as if they were built in-house from day one.",
+      "We go deep on your business your customers, your tone, your pain points, and your goals. Together, we build a service blueprint that maps every detail, from response standards to escalation rules, ensuring our teams represent your brand as if they were built in-house from day one.",
   },
   {
     num: "Step 2",
@@ -25,7 +25,7 @@ const steps = [
 
 export function Process() {
   return (
-    <section className="py-20 sm:py-28" style={{ backgroundColor: "#f3f4fa" }}>
+    <section className="py-10 sm:py-28" style={{ backgroundColor: "#f3f4fa" }}>
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
         {/* Header */}
         <motion.div

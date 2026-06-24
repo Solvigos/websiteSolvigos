@@ -1,161 +1,258 @@
 import Link from "next/link";
-import { Badge } from "@/components/ui/Badge";
-import { Button } from "@/components/ui/Button";
-import { Section } from "@/components/ui/Section";
 import { IconCheck } from "@tabler/icons-react";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Pricing",
+  title: "Outsourced Support Pricing Plans",
+  description:
+    "Transparent pricing for customer support outsourcing. Choose from Starter, Growth, or Enterprise plans — or request a custom quote tailored to your business needs.",
+  openGraph: {
+    title: "Pricing | Solvigos",
+    description:
+      "Transparent pricing for customer support outsourcing. Choose from Starter, Growth, or Enterprise plans.",
+    url: "https://solvigos.com/pricing",
+    images: [
+      {
+        url: "/og_image/pricingpage.png",
+        width: 1200,
+        height: 630,
+        alt: "Solvigos Pricing Plans",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Pricing | Solvigos",
+    description:
+      "Transparent pricing for customer support outsourcing. Choose from Starter, Growth, or Enterprise plans.",
+    images: ["/og_image/pricingpage.png"],
+  },
 };
 
 const plans = [
   {
     name: "Starter",
-    price: "$2,499",
-    period: "/month",
-    description: "Perfect for small teams looking to scale their support operations.",
+    agents: "1 dedicated agent",
+    description: "Perfect for startups & small businesses launching support operations.",
+    badge: "",
+    supportLevel: "L1 Support",
     features: [
-      "Up to 5 dedicated agents",
+      "1 dedicated agent",
       "Email & chat support",
-      "48-hour onboarding",
-      "Basic reporting dashboard",
-      "Standard business hours",
+      "48-hr onboarding",
+      "Basic reporting",
+      "Business hours coverage",
       "Monthly performance review",
     ],
+    cta: "Get a Quote",
+    href: "/contact",
     highlighted: false,
   },
   {
     name: "Growth",
-    price: "$4,999",
-    period: "/month",
+    agents: "Up to 5 agents",
     description: "Ideal for growing businesses needing multi-channel support.",
+    badge: "Most Popular",
+    supportLevel: "L1 & L2 Support",
     features: [
-      "Up to 15 dedicated agents",
-      "Email, chat & phone support",
+      "Up to 5 dedicated agents",
+      "Email & chat support",
       "2-week onboarding",
-      "Advanced analytics & reporting",
+      "Advanced analytics",
       "24/5 coverage",
-      "Quality assurance program",
+      "QA program included",
       "Dedicated account manager",
     ],
+    cta: "Get a Quote",
+    href: "/contact",
     highlighted: true,
   },
   {
     name: "Enterprise",
-    price: "Custom",
-    period: "",
-    description: "Tailored solutions for large organizations with complex needs.",
+    agents: "15+ agents",
+    description: "Tailored for large operations with complex CX needs.",
+    badge: "",
+    supportLevel: "L1, L2 & L3 Support",
     features: [
-      "Unlimited agents",
+      "15+ dedicated agents",
       "Full multi-channel support",
       "Custom onboarding timeline",
       "Real-time dashboards & BI",
-      "24/7/365 coverage",
+      "24/7 / 365 coverage",
       "Enterprise QA & training",
       "Dedicated success team",
       "Custom integrations",
-      "SLA guarantees",
     ],
+    cta: "Get a Quote",
+    href: "/contact",
     highlighted: false,
   },
-];
-
-const faqs = [
-  { q: "Can I scale my team up or down?", a: "Yes, we offer flexible scaling to match your business needs with no long-term lock-in contracts." },
-  { q: "How quickly can you launch?", a: "Most teams are operational within 2 weeks. Our Starter plan launches in as little as 48 hours." },
-  { q: "Do you provide training?", a: "Yes, we provide comprehensive training on your products, processes, and tools before go-live." },
-  { q: "What channels do you support?", a: "We support email, live chat, phone, social media, and SMS across all plans." },
-  { q: "Is there a minimum commitment?", a: "We offer month-to-month flexibility with no minimum commitment on most plans." },
 ];
 
 export default function PricingPage() {
   return (
     <>
-      <section className="bg-ice py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Section 1: Hero */}
+      <section className="bg-[#F3F4FA] pt-24 sm:pt-32 lg:pt-40 pb-16 sm:pb-20 lg:pb-24">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
           <div className="text-center max-w-3xl mx-auto">
-            <Badge>Pricing</Badge>
-            <h1 className="mt-4 text-4xl sm:text-5xl font-bold text-navy leading-tight">
+            <h1
+              className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#1A1A2E] leading-tight"
+              style={{ fontFamily: "var(--font-serif)" }}
+            >
               Transparent Pricing
             </h1>
-            <p className="mt-4 text-lg text-body leading-relaxed max-w-2xl mx-auto">
+            <p className="mt-4 text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto">
               Choose the plan that fits your business. All plans include a dedicated team, quality assurance, and ongoing support.
             </p>
           </div>
         </div>
       </section>
 
-      <Section background="white">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-          {plans.map((plan) => (
-            <div
-              key={plan.name}
-              className={`rounded-2xl p-8 border-2 ${
-                plan.highlighted
-                  ? "border-blue bg-blue text-white scale-[1.05] shadow-xl"
-                  : "border-border bg-white"
-              }`}
-            >
-              <h3 className={`text-xl font-bold ${plan.highlighted ? "text-white" : "text-navy"}`}>
-                {plan.name}
-              </h3>
-              <div className="mt-4 flex items-end gap-1">
-                <span className={`text-4xl font-bold ${plan.highlighted ? "text-white" : "text-navy"}`}>
-                  {plan.price}
-                </span>
-                <span className={`text-sm mb-1 ${plan.highlighted ? "text-white/70" : "text-body"}`}>
-                  {plan.period}
-                </span>
-              </div>
-              <p className={`mt-3 text-sm leading-relaxed ${plan.highlighted ? "text-white/80" : "text-body"}`}>
-                {plan.description}
-              </p>
-              <ul className="mt-8 space-y-3">
-                {plan.features.map((feature) => (
-                  <li key={feature} className="flex items-start gap-3">
-                    <IconCheck size={18} className={`mt-0.5 flex-shrink-0 ${plan.highlighted ? "text-white" : "text-blue"}`} />
-                    <span className={`text-sm ${plan.highlighted ? "text-white/90" : "text-body"}`}>{feature}</span>
-                  </li>
-                ))}
-              </ul>
-              <Button
-                href="/contact"
-                size="lg"
-                className={`mt-8 w-full ${plan.highlighted ? "bg-white text-blue hover:bg-gray-100" : ""}`}
-                variant={plan.highlighted ? "ghost" : "primary"}
+      {/* Section 2: Pricing Cards */}
+      <section className="bg-[#F3F4FA] py-10 sm:py-20 lg:py-24">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto items-start">
+            {plans.map((plan) => (
+              <div
+                key={plan.name}
+                className={`rounded-2xl p-8 flex flex-col h-full ${
+                  plan.highlighted
+                    ? "border-2 border-[#007b7b] bg-[#FAFAFD] shadow-lg relative"
+                    : "border border-gray-200 bg-[#FAFAFD]"
+                }`}
               >
-                Get Started
-              </Button>
-            </div>
-          ))}
-        </div>
-      </Section>
+                {/* Badge */}
+                {plan.badge && (
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                    <span className="bg-[#007b7b] text-white text-xs font-semibold px-4 py-1.5 rounded-full">
+                      {plan.badge}
+                    </span>
+                  </div>
+                )}
 
-      <Section background="ice">
-        <div className="max-w-3xl mx-auto">
-          <h2 className="text-3xl font-bold text-navy text-center">Frequently Asked Questions</h2>
-          <div className="mt-12 space-y-6">
-            {faqs.map((faq) => (
-              <details key={faq.q} className="bg-white rounded-xl p-6 border border-border">
-                <summary className="font-semibold text-navy cursor-pointer">{faq.q}</summary>
-                <p className="mt-3 text-body text-sm leading-relaxed">{faq.a}</p>
-              </details>
+                {/* Plan Name */}
+                <h3 className="text-xl font-bold text-[#1A1A2E]">{plan.name}</h3>
+
+                {/* Agents Count */}
+                <p className="text-sm text-gray-500 mt-1">{plan.agents}</p>
+
+                {/* Description */}
+                <p className="mt-3 text-sm text-gray-600 leading-relaxed">{plan.description}</p>
+
+                {/* Support Level Badge */}
+                <div className="mt-4">
+                  <span className="inline-block bg-teal-50 text-[#007b7b] text-xs font-semibold px-3 py-1.5 rounded-full border border-teal-200">
+                    {plan.supportLevel}
+                  </span>
+                </div>
+
+                {/* Divider */}
+                <div className="border-t border-gray-200 my-6"></div>
+
+                {/* Features */}
+                <ul className="space-y-3 flex-grow">
+                  {plan.features.map((feature) => (
+                    <li key={feature} className="flex items-start gap-3">
+                      <IconCheck size={18} className="mt-0.5 flex-shrink-0 text-[#007b7b]" />
+                      <span className="text-sm text-gray-700">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                {/* CTA Button */}
+                <Link
+                  href={plan.href}
+                  className={`mt-8 w-full inline-flex items-center justify-center gap-2 font-medium rounded-lg transition-all duration-200 px-8 py-3.5 text-base ${
+                    plan.highlighted
+                      ? "bg-[#007b7b] text-white hover:bg-[#00f4f4] hover:text-black"
+                      : "border border-[#007b7b] text-[#007b7b] hover:bg-[#007b7b] hover:text-white"
+                  }`}
+                >
+                  {plan.cta}
+                </Link>
+              </div>
             ))}
+
+            {/* Custom Plan Card - Blurred */}
+            <div className="rounded-2xl p-8 flex flex-col h-full border border-gray-200 bg-[#FAFAFD] relative overflow-hidden">
+              {/* Blurred Content */}
+              <div className="blur-sm pointer-events-none select-none">
+                <h3 className="text-xl font-bold text-[#1A1A2E]">Custom</h3>
+                <p className="text-sm text-gray-500 mt-1">For your specific needs</p>
+                <p className="mt-3 text-sm text-gray-600 leading-relaxed">Build a plan tailored to your business needs</p>
+                <div className="mt-4">
+                  <span className="inline-block bg-teal-50 text-[#007b7b] text-xs font-semibold px-3 py-1.5 rounded-full border border-teal-200">
+                    Custom Support
+                  </span>
+                </div>
+                <div className="border-t border-gray-200 my-6"></div>
+                <ul className="space-y-3">
+                  {["Tailored to your needs", "Flexible pricing", "Custom integrations", "Dedicated support"].map((feature) => (
+                    <li key={feature} className="flex items-start gap-3">
+                      <IconCheck size={18} className="mt-0.5 flex-shrink-0 text-[#007b7b]" />
+                      <span className="text-sm text-gray-700">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Overlay Content */}
+              <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
+                <div className="bg-white/90 backdrop-blur-sm rounded-xl p-6 text-center shadow-lg">
+                  <div className="w-12 h-12 bg-[#007b7b] rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                    </svg>
+                  </div>
+                  <h4 className="text-lg font-bold text-[#1A1A2E]">Unlock Custom Pricing</h4>
+                </div>
+              </div>
+
+              {/* CTA Button - Clickable and moved down */}
+              <div className="mt-auto pt-8 relative z-10">
+                <Link
+                  href="/contact"
+                  className="w-full inline-flex items-center justify-center gap-2 font-medium rounded-lg transition-all duration-200 px-8 py-3.5 text-base border border-[#007b7b] text-[#007b7b] hover:bg-[#007b7b] hover:text-white"
+                >
+                  Get a Quote
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
-      </Section>
+      </section>
 
-      <Section background="white" className="text-center">
-        <h2 className="text-3xl font-bold text-navy">Not Sure Which Plan is Right for You?</h2>
-        <p className="mt-3 text-body max-w-xl mx-auto">
-          Schedule a call with our team and we&apos;ll help you find the perfect solution.
-        </p>
-        <div className="mt-8 flex gap-4 justify-center">
-          <Button href="/contact" size="lg">Contact Us</Button>
-          <Button href="/how-it-works" variant="secondary" size="lg">How It Works</Button>
+      {/* Curved divider*/}
+      <div className="bg-[#F3F4FA]">
+        <svg viewBox="0 0 1440 80" preserveAspectRatio="none" className="w-full h-16 sm:h-20">
+          <path d="M0,80 L0,40 C360,80 720,0 1080,40 C1260,60 1380,70 1440,80 Z" fill="#F3F4FA" />
+          <path d="M0,80 C360,40 720,80 1080,40 C1260,20 1380,10 1440,0 L1440,80 Z" fill="white" />
+        </svg>
+      </div>
+
+      {/* Section 4: Not Sure */}
+      <section className="bg-white py-10 sm:py-20 lg:py-24">
+        <div className="max-w-3xl mx-auto px-6 sm:px-8 lg:px-10 text-center">
+          <h2
+            className="text-3xl sm:text-4xl font-bold text-[#1A1A2E]"
+            style={{ fontFamily: "var(--font-serif)" }}
+          >
+            Not Sure Which Plan is Right for You?
+          </h2>
+          <p className="mt-3 text-gray-600 max-w-xl mx-auto">
+            Schedule a call with our team and we&apos;ll help you find the perfect solution.
+          </p>
+          <div className="mt-8 flex gap-4 justify-center">
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-3 bg-[#007b7b] hover:bg-[#00f4f4] hover:text-black text-white px-10 py-4 text-lg font-semibold rounded-full shadow-lg transition-all duration-300 hover:scale-105"
+            >
+              Contact Us
+            </Link>
+          </div>
         </div>
-      </Section>
+      </section>
     </>
   );
 }

@@ -10,22 +10,13 @@ const POSTS_PER_PAGE = 6;
 
 const filterCategories = [
   {
-    heading: "Filter by Trends + Strategies",
-    tags: ["PRIVACY + SECURITY", "FULL-LIFECYCLE CX", "MEASURING CX IMPACT", "OUTSOURCING 2.0", "SCALING WITH OUTSOURCING", "TECH-ENABLED OUTSOURCING", "CX STRATEGY", "HUMANS + AI", "AI IN CX"],
-  },
-  {
     heading: "Filter by Solution",
     tags: [
       "CUSTOMER EXPERIENCE",
-      "CUSTOMER CONVERSION",
-      "CUSTOMER ONBOARDING",
       "CUSTOMER SUPPORT",
       "TECHNICAL SUPPORT",
-      "CUSTOMER RENEWALS",
       "BPO & BACK-OFFICE",
-      "CRM & CHATBOT SETUP",
-      "HELP DESK MANAGEMENT",
-      "WEB DEVELOPMENT",
+      "CRM & AI CHATBOT SETUP",
     ],
   },
   {

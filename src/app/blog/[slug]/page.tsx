@@ -10,7 +10,26 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const post = getBlogPost(slug);
   if (!post) return { title: "Blog Post" };
-  return { title: `${post.meta.title}` };
+  const baseUrl = "https://solvigos.com";
+  return {
+    title: `${post.meta.title}`,
+    description: post.meta.excerpt,
+    openGraph: {
+      title: `${post.meta.title} | Solvigos Blog`,
+      description: post.meta.excerpt,
+      url: `${baseUrl}/blog/${slug}`,
+      type: "article",
+      images: post.meta.image
+        ? [{ url: `${baseUrl}${post.meta.image}`, width: 1200, height: 630, alt: post.meta.title }]
+        : [],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${post.meta.title} | Solvigos Blog`,
+      description: post.meta.excerpt,
+      images: post.meta.image ? [`${baseUrl}${post.meta.image}`] : [],
+    },
+  };
 }
 
 export async function generateStaticParams() {
@@ -37,6 +56,23 @@ export default async function BlogPostPage({
 
   return (
     <div className="bg-[#FFFCFA] min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            headline: post.meta.title,
+            description: post.meta.excerpt,
+            image: post.meta.image ? `${"https://solvigos.com"}${post.meta.image}` : undefined,
+            datePublished: post.meta.date,
+            author: {
+              "@type": "Organization",
+              name: "Solvigos",
+            },
+          }),
+        }}
+      />
       {/* Hero Section*/}
       <section className="relative">
         <div className="bg-[#F3F4FA] relative">

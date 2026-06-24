@@ -58,7 +58,7 @@ const industries = [
 
 export function IndustriesSection() {
   return (
-    <section className="py-20 sm:py-28" style={{ backgroundColor: "#000f30" }}>
+    <section className="py-10 sm:py-28" style={{ backgroundColor: "#000f30" }}>
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
         {/* Header */}
         <motion.div

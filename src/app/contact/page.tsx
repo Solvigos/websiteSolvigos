@@ -1,71 +1,83 @@
-import { Badge } from "@/components/ui/Badge";
 import { ContactForm } from "@/components/shared/ContactForm";
-import { IconPhone, IconMail, IconMapPin } from "@tabler/icons-react";
+import Image from "next/image";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Contact Us",
+  title: "Get a Free Consultation",
+  description:
+    "Get in touch with Solvigos. Speak with an expert about outsourcing your customer support, technical support, BPO, or CRM & AI chatbot setup.",
+  openGraph: {
+    title: "Contact Us | Solvigos",
+    description:
+      "Get in touch with Solvigos. Speak with an expert about outsourcing your customer support needs.",
+    url: "https://solvigos.com/contact",
+    images: [
+      {
+        url: "/og_image/servicespage.png",
+        width: 1200,
+        height: 630,
+        alt: "Contact Solvigos",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Contact Us | Solvigos",
+    description:
+      "Get in touch with Solvigos. Speak with an expert about outsourcing your customer support needs.",
+    images: ["/og_image/servicespage.png"],
+  },
 };
 
 export default function ContactPage() {
   return (
-    <>
-      <section className="bg-ice py-16 sm:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <Badge>Contact Us</Badge>
-            <h1 className="mt-4 text-4xl sm:text-5xl font-bold text-navy">
-              Let&apos;s Discuss Your Business Needs
-            </h1>
-            <p className="mt-4 text-lg text-body max-w-2xl mx-auto">
-              Whether you need customer support outsourcing, technical assistance, back-office
-              operations, or web development services, our team is ready to help.
-            </p>
+    <section className="bg-[#F3F4FA] min-h-screen">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-20 lg:py-24">
+        {/* Header */}
+        <div className="text-center mb-12">
+          <h1
+            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#1A1A2E] mb-4"
+            style={{ fontFamily: "var(--font-serif)" }}
+          >
+            Speak With an Expert
+          </h1>
+          <p className="text-gray-700 text-base sm:text-lg">
+            Let&apos;s talk about how to scale smarter with AI-enabled outsourcing.
+          </p>
+        </div>
+
+        {/* Form + Images Container */}
+        <div className="relative max-w-3xl mx-auto">
+          {/* Left Image */}
+          <div className="hidden lg:block absolute -left-85 bottom-10 w-85">
+            <Image
+              src="/contactleft.png"
+              alt="Contact illustration"
+              width={220}
+              height={320}
+              className="w-full h-auto object-contain"
+              priority
+            />
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
-            <div className="space-y-8">
-              <div className="flex gap-4">
-                <div className="w-12 h-12 bg-ice rounded-xl flex items-center justify-center flex-shrink-0">
-                  <IconPhone size={22} className="text-blue" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-navy">Phone</h3>
-                  <p className="text-body text-sm mt-0.5">+1 (406) 313-0211</p>
-                </div>
-              </div>
-              <div className="flex gap-4">
-                <div className="w-12 h-12 bg-ice rounded-xl flex items-center justify-center flex-shrink-0">
-                  <IconMail size={22} className="text-blue" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-navy">Email</h3>
-                  <p className="text-body text-sm mt-0.5">support@solvigos.com</p>
-                </div>
-              </div>
-              <div className="flex gap-4">
-                <div className="w-12 h-12 bg-ice rounded-xl flex items-center justify-center flex-shrink-0">
-                  <IconMapPin size={22} className="text-blue" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-navy">Office Address</h3>
-                  <p className="text-body text-sm mt-0.5 leading-relaxed">
-                    30 N Gould St, Suite 38432
-                    <br />
-                    Sheridan, WY 82801
-                    <br />
-                    United States
-                  </p>
-                </div>
-              </div>
-            </div>
+          {/* Right Image */}
+          <div className="hidden lg:block absolute -right-75 top-10 w-65">
+            <Image
+              src="/contactright.png"
+              alt="Contact illustration"
+              width={300}
+              height={500}
+              className="w-full h-auto object-contain"
+              priority
+            />
+          </div>
 
-            <div className="bg-white border border-border rounded-xl p-6 sm:p-8 shadow-sm">
-              <ContactForm />
-            </div>
+          {/* Form Card */}
+          <div className="bg-[#FAFAFD] rounded-2xl shadow-sm p-5 sm:p-8 lg:p-10">
+            <ContactForm />
           </div>
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 }

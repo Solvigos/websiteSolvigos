@@ -20,34 +20,21 @@ const menuSections = [
   {
     heading: "Solutions",
     items: [
-      { label: "Customer Experience", href: "/services/customer-support" },
-      { label: "Customer Conversion", href: "/services/customer-conversion" },
-      { label: "Customer Onboarding", href: "/services/customer-onboarding" },
       { label: "Customer Support", href: "/services/customer-support" },
       { label: "Technical Customer Support", href: "/services/technical-support" },
-      { label: "Customer Renewals", href: "/services/customer-renewals" },
       { label: "BPO & Back-Office", href: "/services/bpo-back-office" },
-      { label: "CRM & Chatbot Setup", href: "/services/crm-chatbot" },
-      { label: "Help Desk Management", href: "/services/help-desk-management" },
-      { label: "Web Development", href: "/services/web-development" },
+      { label: "CRM & AI Chatbot Setup", href: "/services/crm-chatbot" },
     ],
   },
   {
-    heading: "Industries",
+    heading: "Pricing",
     items: [
-      { label: "eCommerce", href: "/industries/ecommerce" },
-      { label: "SaaS", href: "/industries/saas" },
-      { label: "Technology", href: "/industries/technology" },
-      { label: "Healthcare", href: "/industries/healthcare" },
-      { label: "Education", href: "/industries/education" },
-      { label: "Travel & Hospitality", href: "/industries/travel-hospitality" },
-    ],
-  },
-  {
-    heading: "How it Works",
-    items: [
-      { label: "How it Works", href: "/how-it-works" },
       { label: "Pricing", href: "/pricing" },
+    ],
+  },
+  {
+    heading: "About Us",
+    items: [
       { label: "About Us", href: "/about" },
     ],
   },

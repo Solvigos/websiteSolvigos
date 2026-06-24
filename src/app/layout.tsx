@@ -22,14 +22,53 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://solvigos.com"),
   title: {
-    default: "Customer Support Outsourcing",
-    template: "%s | Customer Support Outsourcing",
+    default: "Customer Support Outsourcing | Solvigos",
+    template: "%s | Solvigos",
   },
   description:
-    "Deliver exceptional customer experiences without the cost and complexity of building an in-house support department.",
+    "Deliver exceptional customer experiences without the cost and complexity of building an in-house support department. Solvigos provides omnichannel customer support, technical support, BPO, and CRM & AI chatbot setup.",
   icons: {
     icon: "/title.svg",
+  },
+  openGraph: {
+    type: "website",
+    siteName: "Solvigos",
+    title: "Solvigos | Customer Support Outsourcing Company",
+    description:
+      "Deliver exceptional customer experiences without the cost and complexity of building an in-house support department.",
+    url: "https://solvigos.com",
+    locale: "en_US",
+    images: [
+      {
+        url: "/og_image/landingpage.png",
+        width: 1200,
+        height: 630,
+        alt: "Solvigos - Customer Support Outsourcing",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Solvigos | Customer Support Outsourcing Company",
+    description:
+      "Deliver exceptional customer experiences without the cost and complexity of building an in-house support department.",
+    images: ["/og_image/landingpage.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  alternates: {
+    canonical: "https://solvigos.com",
   },
 };
 
@@ -42,6 +81,28 @@ export default function RootLayout({
       className={`${inter.variable} ${plusJakarta.variable} ${playfair.variable}`}
     >
       <body className="min-h-screen flex flex-col" suppressHydrationWarning>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "Solvigos",
+              url: "https://solvigos.com",
+              description:
+                "Deliver exceptional customer experiences without the cost and complexity of building an in-house support department.",
+              logo: "https://solvigos.com/title.svg",
+              sameAs: [
+                "https://www.facebook.com/profile.php?id=61571546759553",
+                "https://www.instagram.com/solvigos/",
+              ],
+              contactPoint: {
+                "@type": "ContactPoint",
+                contactType: "sales",
+              },
+            }),
+          }}
+        />
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />

@@ -1,31 +1,16 @@
 import Link from "next/link";
 import Image from "next/image";
-import { IconArrowRight, IconBrandLinkedin, IconBrandX, IconBrandFacebook, IconBrandInstagram } from "@tabler/icons-react";
+import { IconArrowRight, IconBrandLinkedin, IconBrandFacebook, IconBrandInstagram } from "@tabler/icons-react";
 
 const serviceLinks = [
   { label: "All Services", href: "/services" },
-  { label: "Customer Conversion", href: "/services/customer-conversion" },
-  { label: "Customer Onboarding", href: "/services/customer-onboarding" },
   { label: "Customer Support", href: "/services/customer-support" },
   { label: "Technical Customer Support", href: "/services/technical-support" },
-  { label: "Customer Renewals", href: "/services/customer-renewals" },
   { label: "BPO & Back-Office", href: "/services/bpo-back-office" },
-  { label: "CRM & Chatbot Setup", href: "/services/crm-chatbot" },
-  { label: "Help Desk Management", href: "/services/help-desk-management" },
-  { label: "Web Development", href: "/services/web-development" },
-];
-
-const industryLinks = [
-  { label: "eCommerce", href: "/industries/ecommerce" },
-  { label: "SaaS", href: "/industries/saas" },
-  { label: "Technology", href: "/industries/technology" },
-  { label: "Healthcare", href: "/industries/healthcare" },
-  { label: "Education", href: "/industries/education" },
-  { label: "Travel & Hospitality", href: "/industries/travel-hospitality" },
+  { label: "CRM & AI Chatbot Setup", href: "/services/crm-chatbot" },
 ];
 
 const companyLinks = [
-  { label: "How it Works", href: "/how-it-works" },
   { label: "Pricing", href: "/pricing" },
   { label: "About Us", href: "/about" },
   { label: "Blog", href: "/blog" },
@@ -35,9 +20,8 @@ const companyLinks = [
 
 const socialLinks = [
   { icon: IconBrandLinkedin, href: "#", label: "LinkedIn" },
-  { icon: IconBrandX, href: "#", label: "X (Twitter)" },
-  { icon: IconBrandFacebook, href: "#", label: "Facebook" },
-  { icon: IconBrandInstagram, href: "#", label: "Instagram" },
+  { icon: IconBrandFacebook, href: "https://www.facebook.com/profile.php?id=61571546759553", label: "Facebook" },
+  { icon: IconBrandInstagram, href: "https://www.instagram.com/solvigos/", label: "Instagram" },
 ];
 
 export function Footer() {
@@ -93,23 +77,6 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Industries */}
-          <div>
-            <h3 className="text-[15px] font-bold text-white mb-5">Industries</h3>
-            <ul className="space-y-3">
-              {industryLinks.map((link) => (
-                <li key={link.label}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-blue-200 hover:text-white transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
           {/* Company */}
           <div>
             <h3 className="text-[15px] font-bold text-white mb-5">Company</h3>
@@ -137,6 +104,8 @@ export function Footer() {
                   <a
                     key={social.label}
                     href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-[#285ccc] transition-colors"
                     aria-label={social.label}
                   >
@@ -162,10 +131,10 @@ export function Footer() {
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-blue-300">
           <p>&copy; {new Date().getFullYear()} Solvigos. All rights reserved.</p>
           <div className="flex gap-8">
-            <Link href="/faq" className="hover:text-white transition-colors">
+            <Link href="/privacy-policy" className="hover:text-white transition-colors">
               Privacy Policy
             </Link>
-            <Link href="/faq" className="hover:text-white transition-colors">
+            <Link href="/terms-of-service" className="hover:text-white transition-colors">
               Terms of Service
             </Link>
           </div>

@@ -71,7 +71,7 @@ export function Testimonials() {
   const col3 = testimonials.slice(6, 9);
 
   return (
-    <section className="py-20 sm:py-28 bg-white overflow-hidden">
+    <section className="py-10 sm:py-28 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
         {/* Header */}
         <motion.div

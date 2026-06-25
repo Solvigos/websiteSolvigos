@@ -37,7 +37,7 @@ export function Case() {
       <div className="relative z-10 h-[100px] sm:h-[120px] w-full overflow-hidden">
         <InfiniteSlider
           className="flex h-full w-full items-center"
-          duration={20}
+          duration={3}
           gap={28}
         >
           {partners.map(({ name, logo, invert, size }) => (

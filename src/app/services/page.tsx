@@ -167,10 +167,10 @@ export default function ServicesPage() {
             <div className="space-y-4">
               <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider">Customer Support</p>
               <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#1A2B5F] leading-tight" style={{ fontFamily: "var(--font-serif)" }}>
-                Fast Responses. Friendly Service. Every Channel.
+                Professional Customer Support Without Hiring a Full Team
               </h3>
               <p className="text-gray-600 leading-relaxed">
-                We deliver professional support across live chat, email, social media, and helpdesk platforms becoming a seamless extension of your brand.
+                Provide fast, friendly support across live chat, email, social media, and helpdesk platforms. We help small businesses respond faster, improve customer satisfaction, and build lasting relationships.
               </p>
               <Link href="/services/customer-support" className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-sm bg-[#004eb6] text-white hover:bg-black transition-colors">
                 Learn More <span>→</span>
@@ -189,10 +189,10 @@ export default function ServicesPage() {
             <div className="space-y-4 order-1 lg:order-2">
               <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider">Technical Support</p>
               <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#1A2B5F] leading-tight" style={{ fontFamily: "var(--font-serif)" }}>
-                Expertise That Keeps Customers Productive.
+                Technical Help Your Customers Can Count On
               </h3>
               <p className="text-gray-600 leading-relaxed">
-                Our trained specialists resolve product and software issues efficiently, reducing downtime and improving the overall user experience.
+                Whether you sell software, hardware, or digital services, our specialists resolve customer issues quickly, reducing downtime and helping your customers stay productive.
               </p>
               <Link href="/services/technical-support" className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-sm bg-[#004eb6] text-white hover:bg-black transition-colors">
                 Learn More <span>→</span>
@@ -205,10 +205,10 @@ export default function ServicesPage() {
             <div className="space-y-4">
               <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider">BPO & Back-Office</p>
               <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#1A2B5F] leading-tight" style={{ fontFamily: "var(--font-serif)" }}>
-                Less Admin. More Growth.
+                Spend Less Time on Admin, More Time Growing
               </h3>
               <p className="text-gray-600 leading-relaxed">
-                From data entry to CRM management, we handle the administrative work that eats up your time, so your team can focus on strategy and scaling.
+                We handle repetitive administrative tasks like data entry, CRM management, order processing, and reporting so you can focus on sales, customers, and scaling your business.
               </p>
               <Link href="/services/bpo-back-office" className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-sm bg-[#004eb6] text-white hover:bg-black transition-colors">
                 Learn More <span>→</span>
@@ -227,10 +227,10 @@ export default function ServicesPage() {
             <div className="space-y-4 order-1 lg:order-2">
               <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider">CRM & AI Chatbot Setup</p>
               <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#1A2B5F] leading-tight" style={{ fontFamily: "var(--font-serif)" }}>
-                Smarter Conversations Start With the Right Setup.
+                Automation Built for Growing Businesses
               </h3>
               <p className="text-gray-600 leading-relaxed">
-                We implement, configure, and optimize your CRM and chatbot systems so your tools do more of the work and your team spends less time managing them.
+                We set up and optimize your CRM, helpdesk, and AI chatbots to automate routine work, capture more leads, and provide better customer support without increasing headcount.
               </p>
               <Link href="/services/crm-chatbot" className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-sm bg-[#004eb6] text-white hover:bg-black transition-colors">
                 Learn More <span>→</span>
@@ -255,8 +255,11 @@ export default function ServicesPage() {
             className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1A2B5F] leading-tight mb-6"
             style={{ fontFamily: "var(--font-serif)" }}
           >
-            Let&apos;s Talk About What Growth Looks Like for You
+            Ready to Grow Without Growing Your Payroll?
           </h2>
+          <p className="text-gray-600 leading-relaxed text-lg mb-8 max-w-2xl mx-auto">
+            Whether you&apos;re a startup or a growing small business, we&apos;ll help you provide professional customer support and streamline your operations without the overhead of hiring an internal team.
+          </p>
           <Link
             href="/contact"
             className="inline-flex items-center gap-2 px-12 py-5 rounded-full font-semibold text-lg transition-all duration-300 bg-[#007b7b] hover:bg-[#00f4f4] hover:text-black text-white hover:scale-105 shadow-lg"

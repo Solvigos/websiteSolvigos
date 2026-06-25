@@ -60,18 +60,6 @@ export default function ContactPage() {
             />
           </div>
 
-          {/* Right Image */}
-          <div className="hidden lg:block absolute -right-75 top-10 w-65">
-            <Image
-              src="/contactright.png"
-              alt="Contact illustration"
-              width={300}
-              height={500}
-              className="w-full h-auto object-contain"
-              priority
-            />
-          </div>
-
           {/* Form Card */}
           <div className="bg-[#FAFAFD] rounded-2xl shadow-sm p-5 sm:p-8 lg:p-10">
             <ContactForm />

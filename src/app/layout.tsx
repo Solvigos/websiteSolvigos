@@ -3,6 +3,7 @@ import { Inter, Plus_Jakarta_Sans, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { MetaPixel } from "@/components/MetaPixel";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -81,6 +82,7 @@ export default function RootLayout({
       className={`${inter.variable} ${plusJakarta.variable} ${playfair.variable}`}
     >
       <body className="min-h-screen flex flex-col" suppressHydrationWarning>
+        <MetaPixel />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

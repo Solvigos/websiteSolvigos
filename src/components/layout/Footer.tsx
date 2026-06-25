@@ -19,7 +19,7 @@ const companyLinks = [
 ];
 
 const socialLinks = [
-  { icon: IconBrandLinkedin, href: "#", label: "LinkedIn" },
+  { icon: IconBrandLinkedin, href: "https://www.linkedin.com/company/solvigos/", label: "LinkedIn" },
   { icon: IconBrandFacebook, href: "https://www.facebook.com/profile.php?id=61571546759553", label: "Facebook" },
   { icon: IconBrandInstagram, href: "https://www.instagram.com/solvigos/", label: "Instagram" },
 ];

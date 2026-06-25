@@ -118,7 +118,7 @@ export function ServiceLayout({
     <>
       {/* Section 1: Hero */}
       <section className="relative bg-[#F3F4FA] overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 py-16 sm:py-32 lg:py-40">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 pt-16 sm:pt-32 lg:pt-40 pb-8 sm:pb-12 lg:pb-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Left: Content */}
             <div className="space-y-6">
@@ -144,13 +144,13 @@ export function ServiceLayout({
 
             {/* Right: Illustration */}
             <div className="flex justify-center lg:justify-center lg:-ml-8">
-              <div className="relative w-80 h-80 sm:w-[500px] sm:h-[500px]">
+              <div className="relative w-80 h-80 sm:w-[550px] sm:h-[550px]">
                 <Image
                   src={heroImage}
                   alt={title}
-                  width={400}
-                  height={400}
-                  className="relative z-10 w-full h-full object-contain p-8"
+                  width={500}
+                  height={500}
+                  className="relative z-10 w-full h-full object-contain"
                   priority
                 />
               </div>
@@ -160,7 +160,7 @@ export function ServiceLayout({
       </section>
 
       {/* Section 2: Outsourced Solutions - Alternating Content */}
-      <section className="bg-[#F3F4FA] py-10 sm:py-20 lg:py-24">
+      <section className="bg-[#F3F4FA] pt-4 sm:pt-8 lg:pt-12 pb-10 sm:pb-20 lg:pb-24">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
           <div className="text-center mb-16">
             <h2

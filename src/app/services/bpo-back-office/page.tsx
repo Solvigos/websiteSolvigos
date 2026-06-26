@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     url: "https://solvigos.com/services/bpo-back-office",
     images: [
       {
-        url: "/og_image/servicespage.png",
+        url: "/og_image/servicespage.jpg",
         width: 1200,
         height: 630,
         alt: "Solvigos BPO & Back-Office Services",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     title: "BPO & Back-Office Services | Solvigos",
     description:
       "Back-office outsourcing for small businesses — data entry, order processing, CRM management, and workflow automation.",
-    images: ["/og_image/servicespage.png"],
+    images: ["/og_image/servicespage.jpg"],
   },
 };
 

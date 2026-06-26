@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     url: "https://solvigos.com/services/crm-chatbot",
     images: [
       {
-        url: "/og_image/crmchatbot.png",
+        url: "/og_image/crmchatbot.jpg",
         width: 1200,
         height: 630,
         alt: "Solvigos CRM & AI Chatbot Setup",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     title: "CRM & AI Chatbot Setup | Solvigos",
     description:
       "CRM setup and AI chatbot integration for small businesses — implement, configure, and optimize your customer experience tools.",
-    images: ["/og_image/crmchatbot.png"],
+    images: ["/og_image/crmchatbot.jpg"],
   },
 };
 

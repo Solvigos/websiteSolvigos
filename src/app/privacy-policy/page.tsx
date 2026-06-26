@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     url: "https://solvigos.com/privacy-policy",
     images: [
       {
-        url: "/og_image/landingpage.png",
+        url: "/og_image/landingpage.jpg",
         width: 1200,
         height: 630,
         alt: "Solvigos Privacy Policy",
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     title: "Privacy Policy | Solvigos",
     description:
       "Learn how Solvigos collects, uses, and protects your personal data across our customer support and BPO services.",
-    images: ["/og_image/landingpage.png"],
+    images: ["/og_image/landingpage.jpg"],
   },
 };
 

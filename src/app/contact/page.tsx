@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     url: "https://solvigos.com/contact",
     images: [
       {
-        url: "/og_image/servicespage.png",
+        url: "/og_image/servicespage.jpg",
         width: 1200,
         height: 630,
         alt: "Contact Solvigos",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     title: "Contact Us | Solvigos",
     description:
       "Get in touch with Solvigos. Speak with an expert about outsourcing your customer support needs.",
-    images: ["/og_image/servicespage.png"],
+    images: ["/og_image/servicespage.jpg"],
   },
 };
 

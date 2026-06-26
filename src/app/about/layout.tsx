@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     url: "https://solvigos.com/about",
     images: [
       {
-        url: "/og_image/aboutus.png",
+        url: "/og_image/aboutus.jpg",
         width: 1200,
         height: 630,
         alt: "About Solvigos",
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     title: "About Us | Solvigos",
     description:
       "Learn about Solvigos — a customer experience outsourcing company focused on your success.",
-    images: ["/og_image/aboutus.png"],
+    images: ["/og_image/aboutus.jpg"],
   },
 };
 

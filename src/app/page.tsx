@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     url: "https://solvigos.com",
     images: [
       {
-        url: "/og_image/landingpage.png",
+        url: "/og_image/landingpage.jpg",
         width: 1200,
         height: 630,
         alt: "Solvigos - Customer Support Outsourcing",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     title: "Solvigos | Customer Support Outsourcing Company",
     description:
       "Deliver exceptional customer experiences without the cost and complexity of building an in-house support department.",
-    images: ["/og_image/landingpage.png"],
+    images: ["/og_image/landingpage.jpg"],
   },
 };
 

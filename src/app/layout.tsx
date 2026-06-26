@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [
       {
-        url: "/og_image/landingpage.png",
+        url: "/og_image/landingpage.jpg",
         width: 1200,
         height: 630,
         alt: "Solvigos - Customer Support Outsourcing",
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     title: "Solvigos | Customer Support Outsourcing Company",
     description:
       "Deliver exceptional customer experiences without the cost and complexity of building an in-house support department.",
-    images: ["/og_image/landingpage.png"],
+    images: ["/og_image/landingpage.jpg"],
   },
   robots: {
     index: true,
@@ -69,7 +69,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://solvigos.com",
+    canonical: "https://www.solvigos.com",
   },
 };
 
@@ -90,7 +90,7 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Organization",
               name: "Solvigos",
-              url: "https://solvigos.com",
+    url: "https://www.solvigos.com",
               description:
                 "Deliver exceptional customer experiences without the cost and complexity of building an in-house support department.",
               logo: "https://solvigos.com/title.svg",

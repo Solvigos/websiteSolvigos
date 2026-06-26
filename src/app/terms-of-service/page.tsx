@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     url: "https://solvigos.com/terms-of-service",
     images: [
       {
-        url: "/og_image/landingpage.png",
+        url: "/og_image/landingpage.jpg",
         width: 1200,
         height: 630,
         alt: "Solvigos Terms of Service",
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     title: "Terms of Service | Solvigos",
     description:
       "Review the terms and conditions governing the use of Solvigos outsourcing services.",
-    images: ["/og_image/landingpage.png"],
+    images: ["/og_image/landingpage.jpg"],
   },
 };
 

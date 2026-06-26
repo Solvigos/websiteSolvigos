@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     url: "https://solvigos.com/services/technical-support",
     images: [
       {
-        url: "/og_image/technicalsupport.png",
+        url: "/og_image/technicalsupport.jpg",
         width: 1200,
         height: 630,
         alt: "Solvigos Technical Support Services",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     title: "Technical Support Services | Solvigos",
     description:
       "Technical support outsourcing for small businesses with product-trained agents for Tier 1 and Tier 2 support.",
-    images: ["/og_image/technicalsupport.png"],
+    images: ["/og_image/technicalsupport.jpg"],
   },
 };
 

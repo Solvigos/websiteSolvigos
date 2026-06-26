@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     url: "https://solvigos.com/services/customer-support",
     images: [
       {
-        url: "/og_image/customersupport.png",
+        url: "/og_image/customersupport.jpg",
         width: 1200,
         height: 630,
         alt: "Solvigos Customer Support Services",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     title: "Customer Support Services | Solvigos",
     description:
       "Small business customer support outsourcing with friendly omnichannel agents and 24/7 coverage. No long-term contracts.",
-    images: ["/og_image/customersupport.png"],
+    images: ["/og_image/customersupport.jpg"],
   },
 };
 

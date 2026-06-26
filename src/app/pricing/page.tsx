@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     url: "https://solvigos.com/pricing",
     images: [
       {
-        url: "/og_image/pricingpage.png",
+        url: "/og_image/pricingpage.jpg",
         width: 1200,
         height: 630,
         alt: "Solvigos Pricing Plans",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     title: "Pricing | Solvigos",
     description:
       "Transparent pricing for customer support outsourcing. Choose from Starter, Growth, or Enterprise plans.",
-    images: ["/og_image/pricingpage.png"],
+    images: ["/og_image/pricingpage.jpg"],
   },
 };
 

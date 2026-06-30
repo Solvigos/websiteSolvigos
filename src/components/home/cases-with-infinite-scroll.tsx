@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { InfiniteSlider } from "@/components/ui/infinite-slider";
-import { ProgressiveBlur } from "@/components/ui/progressive-blur";
 
 const partners: { name: string; logo: string; invert?: boolean; size?: string }[] = [
   { name: "VectorAlgorithms", logo: "/logoTrusted/vectorAlgorithms.png", size: "h-12 sm:h-20" },
@@ -34,7 +33,13 @@ export function Case() {
         </h2>
       </div>
 
-      <div className="relative z-10 h-[100px] sm:h-[120px] w-full overflow-hidden">
+      <div
+        className="relative z-10 h-[100px] sm:h-[120px] w-full overflow-hidden"
+        style={{
+          maskImage: "linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)",
+          WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)",
+        }}
+      >
         <InfiniteSlider
           className="flex h-full w-full items-center"
           duration={3}
@@ -53,16 +58,6 @@ export function Case() {
             </div>
           ))}
         </InfiniteSlider>
-        <ProgressiveBlur
-          className="pointer-events-none absolute top-0 left-0 h-full w-[200px]"
-          direction="left"
-          blurIntensity={1}
-        />
-        <ProgressiveBlur
-          className="pointer-events-none absolute top-0 right-0 h-full w-[200px]"
-          direction="right"
-          blurIntensity={1}
-        />
       </div>
     </section>
   );

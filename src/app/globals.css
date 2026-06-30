@@ -66,3 +66,14 @@ body {
   color: #1a2b5f;
   font-weight: 600;
 }
+
+/* Infinite slider marquee */
+@keyframes marquee-h {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes marquee-v {
+  from { transform: translateY(0); }
+  to { transform: translateY(-50%); }
+}

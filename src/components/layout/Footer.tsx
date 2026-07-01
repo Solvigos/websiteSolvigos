@@ -21,7 +21,7 @@ const companyLinks = [
 const socialLinks = [
   { icon: IconBrandLinkedin, href: "https://www.linkedin.com/company/solvigos/", label: "LinkedIn" },
   { icon: IconBrandFacebook, href: "https://www.facebook.com/profile.php?id=61571546759553", label: "Facebook" },
-  { icon: IconBrandInstagram, href: "https://www.instagram.com/solvigos/", label: "Instagram" },
+  { icon: IconBrandInstagram, href: "https://www.instagram.com/solviigos/", label: "Instagram" },
 ];
 
 export function Footer() {
@@ -129,7 +129,7 @@ export function Footer() {
 
       <div className="border-t border-blue-800">
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-blue-300">
-          <p>&copy; {new Date().getFullYear()} Solvigos. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Musab Solutions. All rights reserved.</p>
           <div className="flex gap-8">
             <Link href="/privacy-policy" className="hover:text-white transition-colors">
               Privacy Policy

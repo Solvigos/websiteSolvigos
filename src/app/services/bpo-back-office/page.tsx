@@ -59,7 +59,7 @@ export default function BpoBackOfficePage() {
       strikeWord="Overhead"
       strikeReplacement="Growth Engine"
       strikeSubheadline="Administrative work shouldn't slow your business down. We remove operational bottlenecks so your team can focus on growth, revenue, and strategic priorities not data entry and spreadsheets."
-      ctaImages={["/startTeam/image9.png", "/startTeam/image3.png", "/startTeam/image4.png", "/startTeam/image8.png"]}
+      ctaImages={["/startTeam/image9.jpg", "/startTeam/image3.jpg", "/startTeam/image4.jpg", "/startTeam/image8.jpg"]}
       stillHaveQuestionsText="We're here to answer any questions you may have about outsourcing your back-office operations. Whether you're a solo founder drowning in admin or a growing team looking to streamline operations, we'd love to chat."
       outsourcedBlocks={{
         heading: <>Back-Office Solutions That<br/>Free Up Your Time</>,

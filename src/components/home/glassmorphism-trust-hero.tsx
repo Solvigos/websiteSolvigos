@@ -55,7 +55,7 @@ export default function HeroSection() {
       `}</style>
 
       <div
-        className="absolute inset-0 z-0 bg-[url(/landingPage.png)] bg-cover bg-center opacity-30"
+        className="absolute inset-0 z-0 bg-[url(/landingPage.jpg)] bg-cover bg-center opacity-30"
         style={{
           maskImage: "linear-gradient(180deg, transparent, black 0%, black 70%, transparent)",
           WebkitMaskImage: "linear-gradient(180deg, transparent, black 0%, black 70%, transparent)",

@@ -86,7 +86,7 @@ export default function CustomerSupportPage() {
         { question: "How quickly can we start?", answer: "Most teams go live within 2-3 weeks. We start with a discovery call to understand your needs, then build, train, and launch your dedicated support team." },
         { question: "Do I need to sign a long-term contract?", answer: "No. We offer flexible month-to-month agreements with no long-term lock-ins. You can scale up, down, or pause as your business needs change." },
       ]}
-      ctaImages={["/startTeam/image9.png", "/startTeam/image3.png", "/startTeam/image4.png", "/startTeam/image8.png"]}
+      ctaImages={["/startTeam/image9.jpg", "/startTeam/image3.jpg", "/startTeam/image4.jpg", "/startTeam/image8.jpg"]}
       stillHaveQuestionsText="We're here to answer any questions you may have about outsourcing your customer support. Whether you're a startup launching your first support team or an established business looking to scale, we'd love to hear from you."
       outsourcedBlocks={{
         heading: <>Support Solutions Designed<br/>for Businesses Like Yours</>,

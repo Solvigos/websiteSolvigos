@@ -87,7 +87,7 @@ export function WhySolvigos() {
           {/* Left: Image */}
           <div className="relative rounded-2xl overflow-hidden shadow-2xl min-h-[500px]">
             <Image
-              src="/landingPage.png"
+              src="/landingPage.jpg"
               alt="Team collaborating at a table with laptops"
               width={800}
               height={600}

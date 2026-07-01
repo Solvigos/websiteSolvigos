@@ -185,7 +185,7 @@ export function ServiceLayout({
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div className="relative rounded-2xl aspect-[4/3] overflow-hidden">
                 <Image
-                  src={`/servicepages/${serviceImageMap[currentService] || "image"}1.png`}
+                  src={`/servicepages/${serviceImageMap[currentService] || "image"}1.jpg`}
                   alt="Service block 1"
                   fill
                   className="object-cover"
@@ -227,7 +227,7 @@ export function ServiceLayout({
               </div>
               <div className="order-1 lg:order-2 relative rounded-2xl aspect-[4/3] overflow-hidden">
                 <Image
-                  src={`/servicepages/${serviceImageMap[currentService] || "image"}2.png`}
+                  src={`/servicepages/${serviceImageMap[currentService] || "image"}2.jpg`}
                   alt="Service block 2"
                   fill
                   className="object-cover"

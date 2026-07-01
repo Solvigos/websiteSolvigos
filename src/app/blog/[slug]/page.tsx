@@ -11,6 +11,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const post = getBlogPost(slug);
   if (!post) return { title: "Blog Post" };
   const baseUrl = "https://solvigos.com";
+  const ogImage = post.meta.image?.replace(".png", ".jpg");
   return {
     title: `${post.meta.title}`,
     description: post.meta.excerpt,
@@ -19,15 +20,15 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       description: post.meta.excerpt,
       url: `${baseUrl}/blog/${slug}`,
       type: "article",
-      images: post.meta.image
-        ? [{ url: `${baseUrl}${post.meta.image}`, width: 1200, height: 630, alt: post.meta.title }]
+      images: ogImage
+        ? [{ url: `${baseUrl}${ogImage}`, width: 1200, height: 630, alt: post.meta.title }]
         : [],
     },
     twitter: {
       card: "summary_large_image",
       title: `${post.meta.title} | Solvigos Blog`,
       description: post.meta.excerpt,
-      images: post.meta.image ? [`${baseUrl}${post.meta.image}`] : [],
+      images: ogImage ? [`${baseUrl}${ogImage}`] : [],
     },
   };
 }

@@ -7,7 +7,7 @@ export function MetaPixel() {
     <>
       <Script
         id="meta-pixel"
-        strategy="afterInteractive"
+        strategy="beforeInteractive"
         dangerouslySetInnerHTML={{
           __html: `
             !function(f,b,e,v,n,t,s){
@@ -21,7 +21,7 @@ export function MetaPixel() {
               s.parentNode.insertBefore(t,s)
             }(window,document,'script',
             'https://connect.facebook.net/en_US/fbevents.js');
-            fbq('init', '1377275220019122');
+            fbq('init', '4567995813420494');
             fbq('track', 'PageView');
           `,
         }}
@@ -31,7 +31,7 @@ export function MetaPixel() {
           height="1"
           width="1"
           style={{ display: "none" }}
-          src="https://www.facebook.com/tr?id=1377275220019122&ev=PageView&noscript=1"
+          src="https://www.facebook.com/tr?id=4567995813420494&ev=PageView&noscript=1"
           alt=""
         />
       </noscript>

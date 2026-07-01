@@ -59,7 +59,7 @@ export default function CrmChatbotPage() {
         { question: "How long does setup take?", answer: "Simple configurations can be completed in a few days. More complex setups involving data migration, multi-tool integrations, or custom automations typically take one to four weeks." },
         { question: "Do I need a technical team to maintain the system?", answer: "No. After setup, we handle ongoing optimization, monitoring, and updates. You don't need to hire an IT person or learn complex software — we've got you covered." },
       ]}
-      ctaImages={["/startTeam/image9.png", "/startTeam/image3.png", "/startTeam/image4.png", "/startTeam/image8.png"]}
+      ctaImages={["/startTeam/image9.jpg", "/startTeam/image3.jpg", "/startTeam/image4.jpg", "/startTeam/image8.jpg"]}
       stillHaveQuestionsText="We're here to answer any questions you may have about CRM and AI chatbot setup. Whether you're setting up your first CRM or looking to add AI chatbots to your existing systems, we'd love to help."
       outsourcedBlocks={{
         heading: <>CRM & Chatbot Solutions<br/>Built for Small Teams</>,

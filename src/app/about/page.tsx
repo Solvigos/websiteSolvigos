@@ -65,7 +65,7 @@ export default function AboutPage() {
 
             {/* Right: Hero image */}
             <div className="flex justify-center lg:justify-center">
-              <div className="relative w-76 h-76 sm:w-100 sm:h-100">
+              <div className="relative w-78 h-78 sm:w-102 sm:h-102">
                 <Image src="/aboutus/hero2.png" alt="About Solvigos" fill className="object-contain" sizes="(max-width: 768px) 54vw, 37vw" />
               </div>
             </div>
@@ -201,16 +201,16 @@ export default function AboutPage() {
             {/* Right: Image collage */}
             <div className="grid grid-cols-2 gap-4">
               <div className="rounded-xl aspect-square relative overflow-hidden">
-                <Image src="/aboutus/image2.png" alt="Team" fill className="object-cover" sizes="(max-width: 768px) 50vw, 25vw" />
+                <Image src="/aboutus/image2.jpg" alt="Team" fill className="object-cover" sizes="(max-width: 768px) 50vw, 25vw" />
               </div>
               <div className="rounded-xl aspect-square relative overflow-hidden">
-                <Image src="/aboutus/image5.png" alt="Team" fill className="object-cover" sizes="(max-width: 768px) 50vw, 25vw" />
+                <Image src="/aboutus/image5.jpg" alt="Team" fill className="object-cover" sizes="(max-width: 768px) 50vw, 25vw" />
               </div>
               <div className="rounded-xl aspect-square relative overflow-hidden">
-                <Image src="/aboutus/image6.png" alt="Team" fill className="object-cover" sizes="(max-width: 768px) 50vw, 25vw" />
+                <Image src="/aboutus/image6.jpg" alt="Team" fill className="object-cover" sizes="(max-width: 768px) 50vw, 25vw" />
               </div>
               <div className="rounded-xl aspect-square relative overflow-hidden">
-                <Image src="/aboutus/image7.png" alt="Team" fill className="object-cover" sizes="(max-width: 768px) 50vw, 25vw" />
+                <Image src="/aboutus/image7.jpg" alt="Team" fill className="object-cover" sizes="(max-width: 768px) 50vw, 25vw" />
               </div>
             </div>
           </div>

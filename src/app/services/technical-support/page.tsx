@@ -59,7 +59,7 @@ export default function TechnicalSupportPage() {
         { question: "Can you handle both Tier 1 and Tier 2 support?", answer: "Yes. We specialize in Tier 1 (frontline troubleshooting) and Tier 2 (advanced technical resolution). For issues that require your engineering team, we manage the escalation process and ensure clean handoffs with all relevant context." },
         { question: "Is there a minimum commitment?", answer: "No. We offer flexible month-to-month agreements so you can start small, test the waters, and scale when it makes sense for your business." },
       ]}
-      ctaImages={["/startTeam/image9.png", "/startTeam/image3.png", "/startTeam/image4.png", "/startTeam/image8.png"]}
+      ctaImages={["/startTeam/image9.jpg", "/startTeam/image3.jpg", "/startTeam/image4.jpg", "/startTeam/image8.jpg"]}
       stillHaveQuestionsText="We're here to answer any questions you may have about outsourcing your technical support. From startups launching their first product to established businesses expanding support coverage, we'd love to help."
       outsourcedBlocks={{
         heading: <>Technical Support Solutions<br/>Built for Real Businesses</>,

@@ -171,9 +171,9 @@ export function ServiceLayout({
               outsourcedBlocks.heading
             ) : (
               <>
-                Outsourced Solutions for Every Stage
+                What Outsourced Solutions
                 <br />
-                of the Customer Journey
+                Are Right for Your Business?
               </>
             )}
             </h2>

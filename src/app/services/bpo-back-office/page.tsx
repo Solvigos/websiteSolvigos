@@ -30,8 +30,20 @@ export const metadata: Metadata = {
 };
 
 export default function BpoBackOfficePage() {
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "What BPO and back-office tasks can you handle?", "acceptedAnswer": { "@type": "Answer", "text": "Our back-office services include data entry, order processing, CRM data management, reporting, administrative coordination, document handling, invoice processing, and other repetitive operational tasks that take time away from your core business." } },
+      { "@type": "Question", "name": "How do you ensure data security?", "acceptedAnswer": { "@type": "Answer", "text": "We take data security seriously. Our teams operate under strict confidentiality agreements and follow best practices for data handling and access control. If your industry has specific compliance requirements, let us know and we'll accommodate them." } },
+      { "@type": "Question", "name": "Can you work with our existing systems?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. We work within your existing tools — whether that's your CRM, project management system, spreadsheets, or proprietary software. We adapt to your stack, not the other way around." } },
+      { "@type": "Question", "name": "What's the minimum commitment?", "acceptedAnswer": { "@type": "Answer", "text": "There's no minimum commitment. We offer flexible month-to-month agreements so you can start small, prove the value, and scale when it makes sense for your business." } },
+    ],
+  };
   return (
-    <ServiceLayout
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <ServiceLayout
       title="Take Back Your Time with Simple, Affordable Back-Office Support"
       subtitle="Services 07"
       description="Free yourself from repetitive admin tasks with accurate data management, workflow automation, and a dedicated team that integrates into your existing systems."
@@ -62,7 +74,7 @@ export default function BpoBackOfficePage() {
       ctaImages={["/startTeam/image9.jpg", "/startTeam/image3.jpg", "/startTeam/image4.jpg", "/startTeam/image8.jpg"]}
       stillHaveQuestionsText="We're here to answer any questions you may have about outsourcing your back-office operations. Whether you're a solo founder drowning in admin or a growing team looking to streamline operations, we'd love to chat."
       outsourcedBlocks={{
-        heading: <>Back-Office Solutions That<br/>Free Up Your Time</>,
+        heading: <>What Back-Office Tasks<br/>Can You Outsource?</>,
         blocks: [
           {
             title: "Less Admin, More What Matters",
@@ -81,5 +93,6 @@ export default function BpoBackOfficePage() {
         ],
       }}
     />
+    </>
   );
 }

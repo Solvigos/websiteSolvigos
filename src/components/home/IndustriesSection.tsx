@@ -74,7 +74,7 @@ export function IndustriesSection() {
             className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6 max-w-2xl"
             style={{ fontFamily: "var(--font-serif)" }}
           >
-            Built for the Industries That Demand More
+            What Industries Does Solvigos Serve?
           </h2>
           <p className="text-gray-400 text-lg max-w-3xl">
             We understand that every industry has unique customer expectations, compliance requirements,

@@ -46,7 +46,7 @@ export function ServicesGrid() {
                 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-[#1A2B5F] leading-tight"
                 style={{ fontFamily: "var(--font-serif)" }}
               >
-                Customer Support, CRM Administration, and Business Process Automation Under One Roof
+                What Customer Support, CRM, and BPO Services Do We Offer?
               </h2>
             </div>
             <div className="relative">

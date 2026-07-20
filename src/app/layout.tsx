@@ -90,18 +90,37 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Organization",
               name: "Solvigos",
-    url: "https://www.solvigos.com",
+              url: "https://www.solvigos.com",
               description:
                 "Deliver exceptional customer experiences without the cost and complexity of building an in-house support department.",
               logo: "https://solvigos.com/title.svg",
               sameAs: [
                 "https://www.facebook.com/profile.php?id=61571546759553",
                 "https://www.instagram.com/solvigos/",
+                "https://www.linkedin.com/company/solvigos/",
               ],
               contactPoint: {
                 "@type": "ContactPoint",
                 contactType: "sales",
               },
+            }),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.solvigos.com/" },
+                { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://www.solvigos.com/services" },
+                { "@type": "ListItem", "position": 3, "name": "Pricing", "item": "https://www.solvigos.com/pricing" },
+                { "@type": "ListItem", "position": 4, "name": "About", "item": "https://www.solvigos.com/about" },
+                { "@type": "ListItem", "position": 5, "name": "FAQ", "item": "https://www.solvigos.com/faq" },
+                { "@type": "ListItem", "position": 6, "name": "Blog", "item": "https://www.solvigos.com/blog" },
+                { "@type": "ListItem", "position": 7, "name": "Contact", "item": "https://www.solvigos.com/contact" },
+              ],
             }),
           }}
         />

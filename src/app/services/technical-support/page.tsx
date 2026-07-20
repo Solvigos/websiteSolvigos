@@ -30,8 +30,20 @@ export const metadata: Metadata = {
 };
 
 export default function TechnicalSupportPage() {
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "What does your Technical Support service cover?", "acceptedAnswer": { "@type": "Answer", "text": "Our Technical Support service handles product and software troubleshooting, guided setup assistance, bug reporting, escalation management, and resolution of technical issues on behalf of your customers." } },
+      { "@type": "Question", "name": "How technical are your support agents?", "acceptedAnswer": { "@type": "Answer", "text": "We recruit and train agents specifically for technical roles. Before going live, they complete product-specific training, learn your documentation, and practice on real-world scenarios." } },
+      { "@type": "Question", "name": "Can you handle both Tier 1 and Tier 2 support?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We specialize in Tier 1 (frontline troubleshooting) and Tier 2 (advanced technical resolution). For issues that require your engineering team, we manage the escalation process and ensure clean handoffs with all relevant context." } },
+      { "@type": "Question", "name": "Is there a minimum commitment?", "acceptedAnswer": { "@type": "Answer", "text": "No. We offer flexible month-to-month agreements so you can start small, test the waters, and scale when it makes sense for your business." } },
+    ],
+  };
   return (
-    <ServiceLayout
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <ServiceLayout
       title="Technical Support That Actually Understands Your Product"
       subtitle="Services 05"
       description="Resolve customer issues quickly with product-trained specialists who know your software inside out. Small business friendly, no long-term commitments."
@@ -62,7 +74,7 @@ export default function TechnicalSupportPage() {
       ctaImages={["/startTeam/image9.jpg", "/startTeam/image3.jpg", "/startTeam/image4.jpg", "/startTeam/image8.jpg"]}
       stillHaveQuestionsText="We're here to answer any questions you may have about outsourcing your technical support. From startups launching their first product to established businesses expanding support coverage, we'd love to help."
       outsourcedBlocks={{
-        heading: <>Technical Support Solutions<br/>Built for Real Businesses</>,
+        heading: <>What Technical Support<br/>Does Solvigos Provide?</>,
         blocks: [
           {
             title: "Technical Expertise Without the Overhead",
@@ -81,5 +93,6 @@ export default function TechnicalSupportPage() {
         ],
       }}
     />
+    </>
   );
 }

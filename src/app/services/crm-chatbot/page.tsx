@@ -30,8 +30,20 @@ export const metadata: Metadata = {
 };
 
 export default function CrmChatbotPage() {
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "What CRM platforms do you work with?", "acceptedAnswer": { "@type": "Answer", "text": "We have experience with HubSpot, Salesforce, Zendesk, Freshdesk, Intercom, GoHighLevel (GHL), Gorgias, and Help Scout. If you use a different CRM, let us know and we'll evaluate compatability." } },
+      { "@type": "Question", "name": "Can you build a chatbot for my website or app?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We design, build, and configure chatbots for customer-facing use cases — including FAQ bots, lead capture bots, support deflection bots, and product recommendation flows." } },
+      { "@type": "Question", "name": "How long does setup take?", "acceptedAnswer": { "@type": "Answer", "text": "Simple configurations can be completed in a few days. More complex setups involving data migration, multi-tool integrations, or custom automations typically take one to four weeks." } },
+      { "@type": "Question", "name": "Do I need a technical team to maintain the system?", "acceptedAnswer": { "@type": "Answer", "text": "No. After setup, we handle ongoing optimization, monitoring, and updates. You don't need to hire an IT person or learn complex software — we've got you covered." } },
+    ],
+  };
   return (
-    <ServiceLayout
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <ServiceLayout
       title="CRM & Chatbot Setup That Actually Works for Small Businesses"
       subtitle="Services 08"
       description="Get your CRM and chatbot systems configured, connected, and running smoothly without needing a technical team or weeks of setup time."
@@ -62,7 +74,7 @@ export default function CrmChatbotPage() {
       ctaImages={["/startTeam/image9.jpg", "/startTeam/image3.jpg", "/startTeam/image4.jpg", "/startTeam/image8.jpg"]}
       stillHaveQuestionsText="We're here to answer any questions you may have about CRM and AI chatbot setup. Whether you're setting up your first CRM or looking to add AI chatbots to your existing systems, we'd love to help."
       outsourcedBlocks={{
-        heading: <>CRM & Chatbot Solutions<br/>Built for Small Teams</>,
+        heading: <>What CRM & AI Chatbot<br/>Services Does Solvigos Offer?</>,
         blocks: [
           {
             title: "Your Tools, Connected and Working Together",
@@ -81,5 +93,6 @@ export default function CrmChatbotPage() {
         ],
       }}
     />
+    </>
   );
 }

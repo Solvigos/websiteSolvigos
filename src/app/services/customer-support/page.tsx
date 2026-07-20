@@ -35,8 +35,20 @@ export const metadata: Metadata = {
 };
 
 export default function CustomerSupportPage() {
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "What channels do you support?", "acceptedAnswer": { "@type": "Answer", "text": "We support live chat, email, social media (Instagram, Facebook, Twitter/X, and others), and phone/voice support. We can operate on whichever channels your customers prefer." } },
+      { "@type": "Question", "name": "Do you offer 24/7 support for small teams?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. 24/7 coverage is available even for smaller teams. We staff agents across multiple time zones so your customers can always reach someone — day, night, weekends, and holidays." } },
+      { "@type": "Question", "name": "How quickly can we start?", "acceptedAnswer": { "@type": "Answer", "text": "Most teams go live within 2-3 weeks. We start with a discovery call to understand your needs, then build, train, and launch your dedicated support team." } },
+      { "@type": "Question", "name": "Do I need to sign a long-term contract?", "acceptedAnswer": { "@type": "Answer", "text": "No. We offer flexible month-to-month agreements with no long-term lock-ins. You can scale up, down, or pause as your business needs change." } },
+    ],
+  };
   return (
-    <ServiceLayout
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <ServiceLayout
       title="Customer Support That Feels Like Yours Without the Headcount"
       subtitle="Services 01"
       description="Delight your customers with friendly, professional support across every channel. We handle the hiring, training, and management so you can focus on growing your business."
@@ -89,7 +101,7 @@ export default function CustomerSupportPage() {
       ctaImages={["/startTeam/image9.jpg", "/startTeam/image3.jpg", "/startTeam/image4.jpg", "/startTeam/image8.jpg"]}
       stillHaveQuestionsText="We're here to answer any questions you may have about outsourcing your customer support. Whether you're a startup launching your first support team or an established business looking to scale, we'd love to hear from you."
       outsourcedBlocks={{
-        heading: <>Support Solutions Designed<br/>for Businesses Like Yours</>,
+        heading: <>What Support Solutions<br/>Does Solvigos Offer?</>,
         blocks: [
           {
             title: "Friendly Support That Feels Personal",
@@ -108,5 +120,6 @@ export default function CustomerSupportPage() {
         ],
       }}
     />
+    </>
   );
 }

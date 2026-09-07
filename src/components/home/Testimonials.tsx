@@ -5,32 +5,32 @@ import { motion } from "framer-motion";
 
 const testimonials = [
   {
-    name: "Bilal Ahmed",
+    name: "Michael Chen",
     role: "Head of Customer Success, SaaS Startup",
     text: "Solvigos transformed our customer support. Our response times dropped by 60% and CSAT scores went from 72% to 94% within three months.",
   },
   {
-    name: "Omar Raza",
+    name: "Jennifer Williams",
     role: "VP Operations, eCommerce Brand",
     text: "Their help desk team became a seamless extension of our brand. We finally have 24/7 coverage without the overhead of building an in-house team.",
   },
   {
-    name: "Sana Sheikh",
+    name: "Robert Johnson",
     role: "Founder, EdTech Platform",
     text: "From onboarding to renewals, Solvigos handles our entire customer lifecycle. Student satisfaction is at an all-time high.",
   },
   {
-    name: "Saman Malik",
+    name: "Lisa Thompson",
     role: "Director of Support, Healthcare SaaS",
     text: "They understood the sensitivity healthcare support demands. HIPAA-compliant, empathetic, and always professional. Highly recommend.",
   },
   {
-    name: "Zainab Hussain",
+    name: "David Wilson",
     role: "COO, Travel & Hospitality Company",
     text: "Our booking support used to be chaotic. Solvigos streamlined everything with their CRM setup and dedicated support agents. Game changer.",
   },
   {
-    name: "Hassan Ali",
+    name: "Sarah Mitchell",
     role: "E-commerce Manager",
     text: "They handled our back-office operations so well that we scaled 3x without hiring a single additional admin person. Pure efficiency.",
   },
@@ -40,12 +40,12 @@ const testimonials = [
     text: "Their technical support team resolved Tier 1-3 issues faster than our previous vendor. Escalation workflows were seamless from day one.",
   },
   {
-    name: "Aliza Khan",
+    name: "Amy Roberts",
     role: "Customer Experience Lead, Retail Brand",
     text: "Solvigos built our omnichannel support from scratch. Live chat, email, phone — everything works in perfect sync now.",
   },
   {
-    name: "Farhan Siddiqui",
+    name: "Matthew Clark",
     role: "Marketing Director, Tech Startup",
     text: "The chatbot they implemented handles 40% of our support tickets automatically. Our team can finally focus on complex cases.",
   },

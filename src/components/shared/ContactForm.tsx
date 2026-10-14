@@ -8,7 +8,16 @@ import { IconChevronDown } from "@tabler/icons-react";
 
 const schema = z.object({
   message: z.string().min(1, "Please tell us how we can help"),
-  email: z.string().email("Valid email is required"),
+  email: z.string()
+        .regex(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/, "Valid email is required")
+        .refine(
+          (data) => {
+            const blockedDomains = ["gmail.com", "yahoo.com", "hotmail.com", "outlook.com", "live.com", "mail.com"];
+            const domain = data.split("@")[1]?.toLowerCase();
+            return !domain || !blockedDomains.includes(domain);
+          },
+          { message: "Business email domain is required" }
+        ),
   preferPhone: z.boolean().optional(),
   phoneCode: z.string().optional(),
   phone: z.string().optional(),
@@ -124,7 +133,7 @@ export function ContactForm() {
     resolver: zodResolver(schema),
     defaultValues: {
       preferPhone: false,
-      phoneCode: "+1",
+      phoneCode: "US +1",
     },
   });
 
@@ -218,7 +227,7 @@ export function ContactForm() {
                 className="appearance-none bg-transparent pl-2 sm:pl-3 pr-6 sm:pr-8 py-3 text-xs sm:text-sm text-gray-700 focus:outline-none cursor-pointer min-w-0"
               >
                 {countryCodes.map((c, i) => (
-                  <option key={i} value={c.code}>
+                  <option key={i} value={c.label}>
                     {c.label}
                   </option>
                 ))}
